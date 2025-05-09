@@ -1,0 +1,42 @@
+type PRODUCT_GQL {
+    id: ID!
+    name: String!
+    categoryId: Int!
+    rawMaterialId: Int!
+    cost: Float!
+    quantity: Float!
+    measurementUnit: String
+    recipe: String
+}
+
+input PRODUCT_GQLInput {
+    name: String!
+    description: String
+    categoryId: Int!
+    productionCost: BigDecimal!
+    sellingPrice: BigDecimal!
+    recipeIds: [Int!]!
+}
+
+type CREATE_PRODUCT_RESPONSE {
+    "Similar to HTTP status code, represents the status of the mutation"
+    code: Int!
+    "Indicates whether the mutation was successful"
+    success: Boolean!
+    "Human-readable message for the UI"
+    message: String!
+    "The newly created listing"
+    product: PRODUCT_GQL
+}
+
+extend type Query {
+    getProducts: [PRODUCT_GQL]!
+    findProductById(id: ID!): PRODUCT_GQL
+    getProductCount: Int!
+}
+
+extend type Mutation {
+    createProduct(product: PRODUCT_GQLInput!): CREATE_PRODUCT_RESPONSE!
+    updateProduct(id: ID!, product: PRODUCT_GQLInput!): PRODUCT_GQL
+    deleteProduct(id: ID!): Boolean
+}

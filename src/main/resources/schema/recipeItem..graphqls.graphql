@@ -1,0 +1,39 @@
+type RECIPE_ITEM_GQL {
+    id: ID!
+    productId: ID!
+    rawMaterialId: ID!
+    quantity: BigDecimal!
+    cost: BigDecimal!
+    measurementUnit: String
+}
+
+input RECIPE_ITEM_GQLInput {
+    productId: ID
+    rawMaterialId: ID
+    quantity: BigDecimal!
+    cost: BigDecimal!
+    measurementUnit: String
+}
+
+type CREATE_RECIPE_ITEM_RESPONSE {
+    "Similar to HTTP status code, represents the status of the mutation"
+    code: Int!
+    "Indicates whether the mutation was successful"
+    success: Boolean!
+    "Human-readable message for the UI"
+    message: String!
+    "The newly created listing"
+    recipeItem: RECIPE_ITEM_GQL
+}
+
+extend type Query {
+    getRecipeItems: [RECIPE_ITEM_GQL]!
+    findRecipeItemById(id: ID!): RECIPE_ITEM_GQL
+    getRecipeItemCount: Int!
+}
+
+extend type Mutation {
+    createRecipeItem(recipeItem: RECIPE_ITEM_GQLInput!): CREATE_RECIPE_ITEM_RESPONSE!
+    updateRecipeItem(id: ID!, recipeItem: RECIPE_ITEM_GQLInput!): RECIPE_ITEM_GQL
+    deleteRecipeItem(id: ID!): Boolean
+}

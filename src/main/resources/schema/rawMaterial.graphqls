@@ -1,0 +1,37 @@
+type CREATE_RAW_MATERIAL_RESPONSE {
+    "Similar to HTTP status code, represents the status of the mutation"
+    code: Int!
+    "Indicates whether the mutation was successful"
+    success: Boolean!
+    "Human-readable message for the UI"
+    message: String!
+    "The newly created listing"
+    rawMaterial: RAW_MATERIAL_GQL
+}
+
+input RAW_MATERIAL_GQLInput {
+    name: String!
+    categoryId: Int!
+    rawMaterialType: String!
+}
+
+type RAW_MATERIAL_GQL {
+    id: ID!
+    name: String!
+    categoryId: Int!
+    rawMaterialType: String!
+}
+
+
+type Query {
+    getRawMaterials: [RAW_MATERIAL_GQL]!
+    findRawMaterialById(id: ID!): RAW_MATERIAL_GQL
+    getRawMaterialCount: Int!
+}
+
+type Mutation {
+    createRawMaterial(rawMaterial: RAW_MATERIAL_GQLInput!): CREATE_RAW_MATERIAL_RESPONSE!
+    updateRawMaterial(id: ID!, rawMaterial: RAW_MATERIAL_GQLInput!): RAW_MATERIAL_GQL
+    removeRawMaterial(id: ID!): Boolean
+
+}

@@ -1,0 +1,40 @@
+type CATEGORY_GQL {
+    id: ID!
+    name: String!
+    type: String!
+    parent: CATEGORY_GQL
+    children: [CATEGORY_GQL]
+    products: [PRODUCT_GQL]
+    rawMaterials: [RAW_MATERIAL_GQL]
+}
+input CATEGORY_GQLInput {
+    name: String!
+    type: String!
+    parentId: Int!
+    childrenIds: [Int]
+    productsIds: [Int]
+    rawMaterialsIds: [Int]
+}
+
+type CREATE_CATEGORY_RESPONSE {
+    "Similar to HTTP status code, represents the status of the mutation"
+    code: Int!
+    "Indicates whether the mutation was successful"
+    success: Boolean!
+    "Human-readable message for the UI"
+    message: String!
+    "The newly created listing"
+    category: CATEGORY_GQL
+}
+
+extend type Query {
+    getCategories: [CATEGORY_GQL]!
+    findCategoryById(id: ID!): CATEGORY_GQL
+    getCategoryCount: Int!
+}
+extend type Mutation {
+    createCategory(category: CATEGORY_GQLInput!): CREATE_CATEGORY_RESPONSE!
+    updateCategory(id: ID!, category: CATEGORY_GQLInput!): CATEGORY_GQL
+    deleteCategory(id: ID!): Boolean
+
+}
