@@ -13,7 +13,7 @@ import java.util.Objects;
 public class STOCK_ENTRY_GQL {
   private String id;
 
-  private String rawMaterialId;
+  private RAW_MATERIAL_GQL rawMaterial;
 
   private BigDecimal quantity;
 
@@ -34,12 +34,12 @@ public class STOCK_ENTRY_GQL {
     this.id = id;
   }
 
-  public String getRawMaterialId() {
-    return rawMaterialId;
+  public RAW_MATERIAL_GQL getRawMaterial() {
+    return rawMaterial;
   }
 
-  public void setRawMaterialId(String rawMaterialId) {
-    this.rawMaterialId = rawMaterialId;
+  public void setRawMaterial(RAW_MATERIAL_GQL rawMaterial) {
+    this.rawMaterial = rawMaterial;
   }
 
   public BigDecimal getQuantity() {
@@ -76,7 +76,7 @@ public class STOCK_ENTRY_GQL {
 
   @Override
   public String toString() {
-    return "STOCK_ENTRY_GQL{id='" + id + "', rawMaterialId='" + rawMaterialId + "', quantity='" + quantity + "', cost='" + cost + "', recipe='" + recipe + "', timestamp='" + timestamp + "'}";
+    return "STOCK_ENTRY_GQL{id='" + id + "', rawMaterial='" + rawMaterial + "', quantity='" + quantity + "', cost='" + cost + "', recipe='" + recipe + "', timestamp='" + timestamp + "'}";
   }
 
   @Override
@@ -85,7 +85,7 @@ public class STOCK_ENTRY_GQL {
     if (o == null || getClass() != o.getClass()) return false;
     STOCK_ENTRY_GQL that = (STOCK_ENTRY_GQL) o;
     return Objects.equals(id, that.id) &&
-        Objects.equals(rawMaterialId, that.rawMaterialId) &&
+        Objects.equals(rawMaterial, that.rawMaterial) &&
         Objects.equals(quantity, that.quantity) &&
         Objects.equals(cost, that.cost) &&
         Objects.equals(recipe, that.recipe) &&
@@ -94,7 +94,7 @@ public class STOCK_ENTRY_GQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, rawMaterialId, quantity, cost, recipe, timestamp);
+    return Objects.hash(id, rawMaterial, quantity, cost, recipe, timestamp);
   }
 
   public static Builder newBuilder() {
@@ -106,7 +106,7 @@ public class STOCK_ENTRY_GQL {
   public static class Builder {
     private String id;
 
-    private String rawMaterialId;
+    private RAW_MATERIAL_GQL rawMaterial;
 
     private BigDecimal quantity;
 
@@ -119,7 +119,7 @@ public class STOCK_ENTRY_GQL {
     public STOCK_ENTRY_GQL build() {
       STOCK_ENTRY_GQL result = new STOCK_ENTRY_GQL();
       result.id = this.id;
-      result.rawMaterialId = this.rawMaterialId;
+      result.rawMaterial = this.rawMaterial;
       result.quantity = this.quantity;
       result.cost = this.cost;
       result.recipe = this.recipe;
@@ -132,8 +132,8 @@ public class STOCK_ENTRY_GQL {
       return this;
     }
 
-    public Builder rawMaterialId(String rawMaterialId) {
-      this.rawMaterialId = rawMaterialId;
+    public Builder rawMaterial(RAW_MATERIAL_GQL rawMaterial) {
+      this.rawMaterial = rawMaterial;
       return this;
     }
 

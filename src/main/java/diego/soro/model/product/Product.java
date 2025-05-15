@@ -1,7 +1,7 @@
 package diego.soro.model.product;
 
 import diego.soro.model.category.Category;
-import diego.soro.model.recipe.RecipeItem;
+import diego.soro.model.recipe_item.RecipeItem;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -10,7 +10,6 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @Table(name = "products")

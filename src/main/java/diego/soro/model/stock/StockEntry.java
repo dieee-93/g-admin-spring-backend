@@ -1,16 +1,13 @@
 package diego.soro.model.stock;
 
 import diego.soro.model.raw_material.RawMaterial;
-import diego.soro.model.recipe.RecipeItem;
-import diego.soro.model.user.UserDTO;
+import diego.soro.model.recipe_item.RecipeItem;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @Entity

@@ -1,17 +1,21 @@
 package diego.soro.model.category.service;
 
 import diego.soro.model.category.Category;
-import diego.soro.model.category.CategoryType;
 
 import java.util.List;
 
 public interface ICategoryService {
 
-    List<Category> getCategoriesByType(CategoryType type);
+    List<Category> findAll();
+
+    List<Category> findProductCategories();
+
+    List<Category> findRawMaterialCategories();
 
     Category findById(Long id);
 
-    void save(Category category);
+    Category save(Category category);
 
     void remove(Long id);
+
 }

@@ -1,7 +1,6 @@
 package diego.soro.model.category.service;
 
 import diego.soro.model.category.Category;
-import diego.soro.model.category.CategoryType;
 import diego.soro.model.category.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,11 +14,18 @@ public class CategoryService implements ICategoryService {
     private CategoryRepository categoryRepository;
 
     @Override
-    public List<Category> getCategoriesByType(CategoryType type) {
-        return categoryRepository.findAll()
-                .stream()
-                .filter(cat -> cat.getType() == type)
-                .toList();
+    public List<Category> findAll() {
+
+        return categoryRepository.findAll();
+    }
+    @Override
+    public List<Category> findProductCategories() {
+        return categoryRepository.findProductCategories();
+    }
+
+    @Override
+    public List<Category> findRawMaterialCategories() {
+        return categoryRepository.findRawMaterialCategories();
     }
 
     @Override
@@ -29,8 +35,8 @@ public class CategoryService implements ICategoryService {
     }
 
     @Override
-    public void save(Category category) {
-        categoryRepository.save(category);
+    public Category save(Category category) {
+        return categoryRepository.save(category);
     }
 
     @Override

@@ -1,7 +1,7 @@
 type RECIPE_ITEM_GQL {
     id: ID!
-    productId: ID!
-    rawMaterialId: ID!
+    product: PRODUCT_GQL
+    rawMaterial: RAW_MATERIAL_GQL
     quantity: BigDecimal!
     cost: BigDecimal!
     measurementUnit: String

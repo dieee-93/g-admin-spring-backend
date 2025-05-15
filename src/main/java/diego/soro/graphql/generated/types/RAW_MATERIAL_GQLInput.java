@@ -11,7 +11,7 @@ import java.util.Objects;
 public class RAW_MATERIAL_GQLInput {
   private String name;
 
-  private int categoryId;
+  private String category;
 
   private String rawMaterialType;
 
@@ -26,12 +26,12 @@ public class RAW_MATERIAL_GQLInput {
     this.name = name;
   }
 
-  public int getCategoryId() {
-    return categoryId;
+  public String getCategory() {
+    return category;
   }
 
-  public void setCategoryId(int categoryId) {
-    this.categoryId = categoryId;
+  public void setCategory(String category) {
+    this.category = category;
   }
 
   public String getRawMaterialType() {
@@ -44,7 +44,7 @@ public class RAW_MATERIAL_GQLInput {
 
   @Override
   public String toString() {
-    return "RAW_MATERIAL_GQLInput{name='" + name + "', categoryId='" + categoryId + "', rawMaterialType='" + rawMaterialType + "'}";
+    return "RAW_MATERIAL_GQLInput{name='" + name + "', category='" + category + "', rawMaterialType='" + rawMaterialType + "'}";
   }
 
   @Override
@@ -53,13 +53,13 @@ public class RAW_MATERIAL_GQLInput {
     if (o == null || getClass() != o.getClass()) return false;
     RAW_MATERIAL_GQLInput that = (RAW_MATERIAL_GQLInput) o;
     return Objects.equals(name, that.name) &&
-        categoryId == that.categoryId &&
+        Objects.equals(category, that.category) &&
         Objects.equals(rawMaterialType, that.rawMaterialType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, categoryId, rawMaterialType);
+    return Objects.hash(name, category, rawMaterialType);
   }
 
   public static Builder newBuilder() {
@@ -71,14 +71,14 @@ public class RAW_MATERIAL_GQLInput {
   public static class Builder {
     private String name;
 
-    private int categoryId;
+    private String category;
 
     private String rawMaterialType;
 
     public RAW_MATERIAL_GQLInput build() {
       RAW_MATERIAL_GQLInput result = new RAW_MATERIAL_GQLInput();
       result.name = this.name;
-      result.categoryId = this.categoryId;
+      result.category = this.category;
       result.rawMaterialType = this.rawMaterialType;
       return result;
     }
@@ -88,8 +88,8 @@ public class RAW_MATERIAL_GQLInput {
       return this;
     }
 
-    public Builder categoryId(int categoryId) {
-      this.categoryId = categoryId;
+    public Builder category(String category) {
+      this.category = category;
       return this;
     }
 

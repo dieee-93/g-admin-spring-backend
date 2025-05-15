@@ -10,10 +10,10 @@ type CATEGORY_GQL {
 input CATEGORY_GQLInput {
     name: String!
     type: String!
-    parentId: Int!
-    childrenIds: [Int]
-    productsIds: [Int]
-    rawMaterialsIds: [Int]
+    parentId: ID!
+    childrenIds: [ID]
+    productsIds: [ID]
+    rawMaterialsIds: [ID]
 }
 
 type CREATE_CATEGORY_RESPONSE {
@@ -28,9 +28,14 @@ type CREATE_CATEGORY_RESPONSE {
 }
 
 extend type Query {
-    getCategories: [CATEGORY_GQL]!
+    findAll: [CATEGORY_GQL]!
+    findAllRawMaterialCategory: [CATEGORY_GQL]!
+    findAllProductCategory: [CATEGORY_GQL]!
     findCategoryById(id: ID!): CATEGORY_GQL
+    getRawMaterialCategoryCount: Int!
+    getProductCategoryCount: Int!
     getCategoryCount: Int!
+
 }
 extend type Mutation {
     createCategory(category: CATEGORY_GQLInput!): CREATE_CATEGORY_RESPONSE!

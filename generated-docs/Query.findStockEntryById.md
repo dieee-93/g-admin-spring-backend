@@ -10,7 +10,7 @@
 {
   findStockEntryById(id: "random12345") {
     id
-    rawMaterialId
+    rawMaterial
     quantity
     cost
     recipe

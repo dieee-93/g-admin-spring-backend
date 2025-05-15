@@ -6,7 +6,7 @@
   getRawMaterials {
     id
     name
-    categoryId
+    category
     rawMaterialType
   }
 }

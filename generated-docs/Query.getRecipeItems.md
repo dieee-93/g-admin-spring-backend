@@ -5,8 +5,8 @@
 {
   getRecipeItems {
     id
-    productId
-    rawMaterialId
+    product
+    rawMaterial
     quantity
     cost
     measurementUnit

@@ -10,8 +10,8 @@
 {
   findRecipeItemById(id: "random12345") {
     id
-    productId
-    rawMaterialId
+    product
+    rawMaterial
     quantity
     cost
     measurementUnit

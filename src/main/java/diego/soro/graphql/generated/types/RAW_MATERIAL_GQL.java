@@ -13,7 +13,7 @@ public class RAW_MATERIAL_GQL {
 
   private String name;
 
-  private int categoryId;
+  private CATEGORY_GQL category;
 
   private String rawMaterialType;
 
@@ -36,12 +36,12 @@ public class RAW_MATERIAL_GQL {
     this.name = name;
   }
 
-  public int getCategoryId() {
-    return categoryId;
+  public CATEGORY_GQL getCategory() {
+    return category;
   }
 
-  public void setCategoryId(int categoryId) {
-    this.categoryId = categoryId;
+  public void setCategory(CATEGORY_GQL category) {
+    this.category = category;
   }
 
   public String getRawMaterialType() {
@@ -54,7 +54,7 @@ public class RAW_MATERIAL_GQL {
 
   @Override
   public String toString() {
-    return "RAW_MATERIAL_GQL{id='" + id + "', name='" + name + "', categoryId='" + categoryId + "', rawMaterialType='" + rawMaterialType + "'}";
+    return "RAW_MATERIAL_GQL{id='" + id + "', name='" + name + "', category='" + category + "', rawMaterialType='" + rawMaterialType + "'}";
   }
 
   @Override
@@ -64,13 +64,13 @@ public class RAW_MATERIAL_GQL {
     RAW_MATERIAL_GQL that = (RAW_MATERIAL_GQL) o;
     return Objects.equals(id, that.id) &&
         Objects.equals(name, that.name) &&
-        categoryId == that.categoryId &&
+        Objects.equals(category, that.category) &&
         Objects.equals(rawMaterialType, that.rawMaterialType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, categoryId, rawMaterialType);
+    return Objects.hash(id, name, category, rawMaterialType);
   }
 
   public static Builder newBuilder() {
@@ -84,7 +84,7 @@ public class RAW_MATERIAL_GQL {
 
     private String name;
 
-    private int categoryId;
+    private CATEGORY_GQL category;
 
     private String rawMaterialType;
 
@@ -92,7 +92,7 @@ public class RAW_MATERIAL_GQL {
       RAW_MATERIAL_GQL result = new RAW_MATERIAL_GQL();
       result.id = this.id;
       result.name = this.name;
-      result.categoryId = this.categoryId;
+      result.category = this.category;
       result.rawMaterialType = this.rawMaterialType;
       return result;
     }
@@ -107,8 +107,8 @@ public class RAW_MATERIAL_GQL {
       return this;
     }
 
-    public Builder categoryId(int categoryId) {
-      this.categoryId = categoryId;
+    public Builder category(CATEGORY_GQL category) {
+      this.category = category;
       return this;
     }
 

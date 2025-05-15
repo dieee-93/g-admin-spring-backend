@@ -11,10 +11,10 @@
   findProductById(id: "random12345") {
     id
     name
-    categoryId
-    rawMaterialId
-    cost
-    quantity
+    description
+    category
+    productionCost
+    sellingPrice
     measurementUnit
     recipe
   }

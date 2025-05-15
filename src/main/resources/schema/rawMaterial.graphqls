@@ -11,14 +11,14 @@ type CREATE_RAW_MATERIAL_RESPONSE {
 
 input RAW_MATERIAL_GQLInput {
     name: String!
-    categoryId: Int!
+    category: ID!
     rawMaterialType: String!
 }
 
 type RAW_MATERIAL_GQL {
     id: ID!
     name: String!
-    categoryId: Int!
+    category: CATEGORY_GQL!
     rawMaterialType: String!
 }
 

@@ -4,6 +4,8 @@ import jakarta.annotation.Generated;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.math.BigDecimal;
+import java.util.List;
 import java.util.Objects;
 
 @Generated("com.netflix.graphql.dgs.codegen.CodeGen")
@@ -13,17 +15,17 @@ public class PRODUCT_GQL {
 
   private String name;
 
-  private int categoryId;
+  private String description;
 
-  private int rawMaterialId;
+  private CATEGORY_GQL category;
 
-  private double cost;
+  private BigDecimal productionCost;
 
-  private double quantity;
+  private BigDecimal sellingPrice;
 
   private String measurementUnit;
 
-  private String recipe;
+  private List<RECIPE_ITEM_GQL> recipe;
 
   public PRODUCT_GQL() {
   }
@@ -44,36 +46,36 @@ public class PRODUCT_GQL {
     this.name = name;
   }
 
-  public int getCategoryId() {
-    return categoryId;
+  public String getDescription() {
+    return description;
   }
 
-  public void setCategoryId(int categoryId) {
-    this.categoryId = categoryId;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
-  public int getRawMaterialId() {
-    return rawMaterialId;
+  public CATEGORY_GQL getCategory() {
+    return category;
   }
 
-  public void setRawMaterialId(int rawMaterialId) {
-    this.rawMaterialId = rawMaterialId;
+  public void setCategory(CATEGORY_GQL category) {
+    this.category = category;
   }
 
-  public double getCost() {
-    return cost;
+  public BigDecimal getProductionCost() {
+    return productionCost;
   }
 
-  public void setCost(double cost) {
-    this.cost = cost;
+  public void setProductionCost(BigDecimal productionCost) {
+    this.productionCost = productionCost;
   }
 
-  public double getQuantity() {
-    return quantity;
+  public BigDecimal getSellingPrice() {
+    return sellingPrice;
   }
 
-  public void setQuantity(double quantity) {
-    this.quantity = quantity;
+  public void setSellingPrice(BigDecimal sellingPrice) {
+    this.sellingPrice = sellingPrice;
   }
 
   public String getMeasurementUnit() {
@@ -84,17 +86,17 @@ public class PRODUCT_GQL {
     this.measurementUnit = measurementUnit;
   }
 
-  public String getRecipe() {
+  public List<RECIPE_ITEM_GQL> getRecipe() {
     return recipe;
   }
 
-  public void setRecipe(String recipe) {
+  public void setRecipe(List<RECIPE_ITEM_GQL> recipe) {
     this.recipe = recipe;
   }
 
   @Override
   public String toString() {
-    return "PRODUCT_GQL{id='" + id + "', name='" + name + "', categoryId='" + categoryId + "', rawMaterialId='" + rawMaterialId + "', cost='" + cost + "', quantity='" + quantity + "', measurementUnit='" + measurementUnit + "', recipe='" + recipe + "'}";
+    return "PRODUCT_GQL{id='" + id + "', name='" + name + "', description='" + description + "', category='" + category + "', productionCost='" + productionCost + "', sellingPrice='" + sellingPrice + "', measurementUnit='" + measurementUnit + "', recipe='" + recipe + "'}";
   }
 
   @Override
@@ -104,17 +106,17 @@ public class PRODUCT_GQL {
     PRODUCT_GQL that = (PRODUCT_GQL) o;
     return Objects.equals(id, that.id) &&
         Objects.equals(name, that.name) &&
-        categoryId == that.categoryId &&
-        rawMaterialId == that.rawMaterialId &&
-        cost == that.cost &&
-        quantity == that.quantity &&
+        Objects.equals(description, that.description) &&
+        Objects.equals(category, that.category) &&
+        Objects.equals(productionCost, that.productionCost) &&
+        Objects.equals(sellingPrice, that.sellingPrice) &&
         Objects.equals(measurementUnit, that.measurementUnit) &&
         Objects.equals(recipe, that.recipe);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, categoryId, rawMaterialId, cost, quantity, measurementUnit, recipe);
+    return Objects.hash(id, name, description, category, productionCost, sellingPrice, measurementUnit, recipe);
   }
 
   public static Builder newBuilder() {
@@ -128,26 +130,26 @@ public class PRODUCT_GQL {
 
     private String name;
 
-    private int categoryId;
+    private String description;
 
-    private int rawMaterialId;
+    private CATEGORY_GQL category;
 
-    private double cost;
+    private BigDecimal productionCost;
 
-    private double quantity;
+    private BigDecimal sellingPrice;
 
     private String measurementUnit;
 
-    private String recipe;
+    private List<RECIPE_ITEM_GQL> recipe;
 
     public PRODUCT_GQL build() {
       PRODUCT_GQL result = new PRODUCT_GQL();
       result.id = this.id;
       result.name = this.name;
-      result.categoryId = this.categoryId;
-      result.rawMaterialId = this.rawMaterialId;
-      result.cost = this.cost;
-      result.quantity = this.quantity;
+      result.description = this.description;
+      result.category = this.category;
+      result.productionCost = this.productionCost;
+      result.sellingPrice = this.sellingPrice;
       result.measurementUnit = this.measurementUnit;
       result.recipe = this.recipe;
       return result;
@@ -163,23 +165,23 @@ public class PRODUCT_GQL {
       return this;
     }
 
-    public Builder categoryId(int categoryId) {
-      this.categoryId = categoryId;
+    public Builder description(String description) {
+      this.description = description;
       return this;
     }
 
-    public Builder rawMaterialId(int rawMaterialId) {
-      this.rawMaterialId = rawMaterialId;
+    public Builder category(CATEGORY_GQL category) {
+      this.category = category;
       return this;
     }
 
-    public Builder cost(double cost) {
-      this.cost = cost;
+    public Builder productionCost(BigDecimal productionCost) {
+      this.productionCost = productionCost;
       return this;
     }
 
-    public Builder quantity(double quantity) {
-      this.quantity = quantity;
+    public Builder sellingPrice(BigDecimal sellingPrice) {
+      this.sellingPrice = sellingPrice;
       return this;
     }
 
@@ -188,7 +190,7 @@ public class PRODUCT_GQL {
       return this;
     }
 
-    public Builder recipe(String recipe) {
+    public Builder recipe(List<RECIPE_ITEM_GQL> recipe) {
       this.recipe = recipe;
       return this;
     }

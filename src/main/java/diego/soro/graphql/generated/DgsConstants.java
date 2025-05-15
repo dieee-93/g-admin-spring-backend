@@ -52,13 +52,13 @@ public class DgsConstants {
 
     public static final String Name = "name";
 
-    public static final String CategoryId = "categoryId";
+    public static final String Description = "description";
 
-    public static final String RawMaterialId = "rawMaterialId";
+    public static final String Category = "category";
 
-    public static final String Cost = "cost";
+    public static final String ProductionCost = "productionCost";
 
-    public static final String Quantity = "quantity";
+    public static final String SellingPrice = "sellingPrice";
 
     public static final String MeasurementUnit = "measurementUnit";
 
@@ -102,7 +102,7 @@ public class DgsConstants {
 
     public static final String Name = "name";
 
-    public static final String CategoryId = "categoryId";
+    public static final String Category = "category";
 
     public static final String RawMaterialType = "rawMaterialType";
   }
@@ -118,9 +118,17 @@ public class DgsConstants {
 
     public static final String GetRawMaterialCount = "getRawMaterialCount";
 
-    public static final String GetCategories = "getCategories";
+    public static final String FindAll = "findAll";
+
+    public static final String FindAllRawMaterialCategory = "findAllRawMaterialCategory";
+
+    public static final String FindAllProductCategory = "findAllProductCategory";
 
     public static final String FindCategoryById = "findCategoryById";
+
+    public static final String GetRawMaterialCategoryCount = "getRawMaterialCategoryCount";
+
+    public static final String GetProductCategoryCount = "getProductCategoryCount";
 
     public static final String GetCategoryCount = "getCategoryCount";
 
@@ -316,9 +324,9 @@ public class DgsConstants {
 
     public static final String Id = "id";
 
-    public static final String ProductId = "productId";
+    public static final String Product = "product";
 
-    public static final String RawMaterialId = "rawMaterialId";
+    public static final String RawMaterial = "rawMaterial";
 
     public static final String Quantity = "quantity";
 
@@ -348,7 +356,7 @@ public class DgsConstants {
 
     public static final String Id = "id";
 
-    public static final String RawMaterialId = "rawMaterialId";
+    public static final String RawMaterial = "rawMaterial";
 
     public static final String Quantity = "quantity";
 
@@ -404,7 +412,9 @@ public class DgsConstants {
 
     public static final String ProductionCost = "productionCost";
 
-    public static final String RecipeIds = "recipeIds";
+    public static final String SellingPrice = "sellingPrice";
+
+    public static final String Recipe = "recipe";
   }
 
   @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
@@ -414,7 +424,7 @@ public class DgsConstants {
 
     public static final String Name = "name";
 
-    public static final String CategoryId = "categoryId";
+    public static final String Category = "category";
 
     public static final String RawMaterialType = "rawMaterialType";
   }
@@ -445,6 +455,8 @@ public class DgsConstants {
     public static final String Quantity = "quantity";
 
     public static final String Cost = "cost";
+
+    public static final String MeasurementUnit = "measurementUnit";
 
     public static final String Recipe = "recipe";
   }

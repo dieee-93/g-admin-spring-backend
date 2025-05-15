@@ -11,7 +11,7 @@
   findRawMaterialById(id: "random12345") {
     id
     name
-    categoryId
+    category
     rawMaterialType
   }
 }

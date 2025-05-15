@@ -12,9 +12,9 @@ import java.util.Objects;
 public class RECIPE_ITEM_GQL {
   private String id;
 
-  private String productId;
+  private PRODUCT_GQL product;
 
-  private String rawMaterialId;
+  private RAW_MATERIAL_GQL rawMaterial;
 
   private BigDecimal quantity;
 
@@ -33,20 +33,20 @@ public class RECIPE_ITEM_GQL {
     this.id = id;
   }
 
-  public String getProductId() {
-    return productId;
+  public PRODUCT_GQL getProduct() {
+    return product;
   }
 
-  public void setProductId(String productId) {
-    this.productId = productId;
+  public void setProduct(PRODUCT_GQL product) {
+    this.product = product;
   }
 
-  public String getRawMaterialId() {
-    return rawMaterialId;
+  public RAW_MATERIAL_GQL getRawMaterial() {
+    return rawMaterial;
   }
 
-  public void setRawMaterialId(String rawMaterialId) {
-    this.rawMaterialId = rawMaterialId;
+  public void setRawMaterial(RAW_MATERIAL_GQL rawMaterial) {
+    this.rawMaterial = rawMaterial;
   }
 
   public BigDecimal getQuantity() {
@@ -75,7 +75,7 @@ public class RECIPE_ITEM_GQL {
 
   @Override
   public String toString() {
-    return "RECIPE_ITEM_GQL{id='" + id + "', productId='" + productId + "', rawMaterialId='" + rawMaterialId + "', quantity='" + quantity + "', cost='" + cost + "', measurementUnit='" + measurementUnit + "'}";
+    return "RECIPE_ITEM_GQL{id='" + id + "', product='" + product + "', rawMaterial='" + rawMaterial + "', quantity='" + quantity + "', cost='" + cost + "', measurementUnit='" + measurementUnit + "'}";
   }
 
   @Override
@@ -84,8 +84,8 @@ public class RECIPE_ITEM_GQL {
     if (o == null || getClass() != o.getClass()) return false;
     RECIPE_ITEM_GQL that = (RECIPE_ITEM_GQL) o;
     return Objects.equals(id, that.id) &&
-        Objects.equals(productId, that.productId) &&
-        Objects.equals(rawMaterialId, that.rawMaterialId) &&
+        Objects.equals(product, that.product) &&
+        Objects.equals(rawMaterial, that.rawMaterial) &&
         Objects.equals(quantity, that.quantity) &&
         Objects.equals(cost, that.cost) &&
         Objects.equals(measurementUnit, that.measurementUnit);
@@ -93,7 +93,7 @@ public class RECIPE_ITEM_GQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, productId, rawMaterialId, quantity, cost, measurementUnit);
+    return Objects.hash(id, product, rawMaterial, quantity, cost, measurementUnit);
   }
 
   public static Builder newBuilder() {
@@ -105,9 +105,9 @@ public class RECIPE_ITEM_GQL {
   public static class Builder {
     private String id;
 
-    private String productId;
+    private PRODUCT_GQL product;
 
-    private String rawMaterialId;
+    private RAW_MATERIAL_GQL rawMaterial;
 
     private BigDecimal quantity;
 
@@ -118,8 +118,8 @@ public class RECIPE_ITEM_GQL {
     public RECIPE_ITEM_GQL build() {
       RECIPE_ITEM_GQL result = new RECIPE_ITEM_GQL();
       result.id = this.id;
-      result.productId = this.productId;
-      result.rawMaterialId = this.rawMaterialId;
+      result.product = this.product;
+      result.rawMaterial = this.rawMaterial;
       result.quantity = this.quantity;
       result.cost = this.cost;
       result.measurementUnit = this.measurementUnit;
@@ -131,13 +131,13 @@ public class RECIPE_ITEM_GQL {
       return this;
     }
 
-    public Builder productId(String productId) {
-      this.productId = productId;
+    public Builder product(PRODUCT_GQL product) {
+      this.product = product;
       return this;
     }
 
-    public Builder rawMaterialId(String rawMaterialId) {
-      this.rawMaterialId = rawMaterialId;
+    public Builder rawMaterial(RAW_MATERIAL_GQL rawMaterial) {
+      this.rawMaterial = rawMaterial;
       return this;
     }
 

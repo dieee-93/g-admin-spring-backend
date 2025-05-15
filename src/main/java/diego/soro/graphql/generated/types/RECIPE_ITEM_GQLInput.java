@@ -4,6 +4,7 @@ import jakarta.annotation.Generated;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 @Generated("com.netflix.graphql.dgs.codegen.CodeGen")
@@ -13,9 +14,9 @@ public class RECIPE_ITEM_GQLInput {
 
   private String rawMaterialId;
 
-  private double quantity;
+  private BigDecimal quantity;
 
-  private double cost;
+  private BigDecimal cost;
 
   private String measurementUnit;
 
@@ -38,19 +39,19 @@ public class RECIPE_ITEM_GQLInput {
     this.rawMaterialId = rawMaterialId;
   }
 
-  public double getQuantity() {
+  public BigDecimal getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(double quantity) {
+  public void setQuantity(BigDecimal quantity) {
     this.quantity = quantity;
   }
 
-  public double getCost() {
+  public BigDecimal getCost() {
     return cost;
   }
 
-  public void setCost(double cost) {
+  public void setCost(BigDecimal cost) {
     this.cost = cost;
   }
 
@@ -74,8 +75,8 @@ public class RECIPE_ITEM_GQLInput {
     RECIPE_ITEM_GQLInput that = (RECIPE_ITEM_GQLInput) o;
     return Objects.equals(productId, that.productId) &&
         Objects.equals(rawMaterialId, that.rawMaterialId) &&
-        quantity == that.quantity &&
-        cost == that.cost &&
+        Objects.equals(quantity, that.quantity) &&
+        Objects.equals(cost, that.cost) &&
         Objects.equals(measurementUnit, that.measurementUnit);
   }
 
@@ -95,9 +96,9 @@ public class RECIPE_ITEM_GQLInput {
 
     private String rawMaterialId;
 
-    private double quantity;
+    private BigDecimal quantity;
 
-    private double cost;
+    private BigDecimal cost;
 
     private String measurementUnit;
 
@@ -121,12 +122,12 @@ public class RECIPE_ITEM_GQLInput {
       return this;
     }
 
-    public Builder quantity(double quantity) {
+    public Builder quantity(BigDecimal quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    public Builder cost(double cost) {
+    public Builder cost(BigDecimal cost) {
       this.cost = cost;
       return this;
     }

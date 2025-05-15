@@ -1,6 +1,5 @@
-package diego.soro.model.raw_material.mappers;//package diego.soro.model.mappers;
-import diego.soro.graphql.generated.types.RawMaterialGQL;
-import diego.soro.graphql.generated.types.RawMaterialType;
+package diego.soro.model.raw_material.mappers;
+import diego.soro.graphql.generated.types.RAW_MATERIAL_GQL;
 import diego.soro.model.raw_material.RawMaterial;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;
@@ -11,13 +10,13 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface RawMaterialMapper {
     // Mapeo de entidad a tipo GraphQL
-    RawMaterialGQL entityToGQL(RawMaterial entity);
+    RAW_MATERIAL_GQL entityToGQL(RawMaterial entity);
 
     // Mapeo de tipo GraphQL a entidad
-    RawMaterial GQLToEntity(RawMaterialGQL GQLType);
+    RawMaterial GQLToEntity(RAW_MATERIAL_GQL GQLType);
 
     // Mapeo de listas
-    List<RawMaterialGQL> entityToGQLList(List<RawMaterial> entities);
-    List<RawMaterial>GQLtoEntityList(List<RawMaterialGQL> GQLTypes);
+    List<RAW_MATERIAL_GQL> entityToGQLList(List<RawMaterial> entities);
+    List<RawMaterial>GQLtoEntityList(List<RAW_MATERIAL_GQL> GQLTypes);
 
 }

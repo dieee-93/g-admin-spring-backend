@@ -1,10 +1,10 @@
 package diego.soro.graphql.generated.types;
 
 import jakarta.annotation.Generated;
-import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,11 +15,13 @@ public class PRODUCT_GQLInput {
 
   private String description;
 
-  private int categoryId;
+  private String categoryId;
 
-  private double productionCost;
+  private BigDecimal productionCost;
 
-  private List<Integer> recipeIds;
+  private BigDecimal sellingPrice;
+
+  private List<RECIPE_ITEM_GQLInput> recipe;
 
   public PRODUCT_GQLInput() {
   }
@@ -40,33 +42,41 @@ public class PRODUCT_GQLInput {
     this.description = description;
   }
 
-  public int getCategoryId() {
+  public String getCategoryId() {
     return categoryId;
   }
 
-  public void setCategoryId(int categoryId) {
+  public void setCategoryId(String categoryId) {
     this.categoryId = categoryId;
   }
 
-  public double getProductionCost() {
+  public BigDecimal getProductionCost() {
     return productionCost;
   }
 
-  public void setProductionCost(double productionCost) {
+  public void setProductionCost(BigDecimal productionCost) {
     this.productionCost = productionCost;
   }
 
-  public List<Integer> getRecipeIds() {
-    return recipeIds;
+  public BigDecimal getSellingPrice() {
+    return sellingPrice;
   }
 
-  public void setRecipeIds(List<Integer> recipeIds) {
-    this.recipeIds = recipeIds;
+  public void setSellingPrice(BigDecimal sellingPrice) {
+    this.sellingPrice = sellingPrice;
+  }
+
+  public List<RECIPE_ITEM_GQLInput> getRecipe() {
+    return recipe;
+  }
+
+  public void setRecipe(List<RECIPE_ITEM_GQLInput> recipe) {
+    this.recipe = recipe;
   }
 
   @Override
   public String toString() {
-    return "PRODUCT_GQLInput{name='" + name + "', description='" + description + "', categoryId='" + categoryId + "', productionCost='" + productionCost + "', recipeIds='" + recipeIds + "'}";
+    return "PRODUCT_GQLInput{name='" + name + "', description='" + description + "', categoryId='" + categoryId + "', productionCost='" + productionCost + "', sellingPrice='" + sellingPrice + "', recipe='" + recipe + "'}";
   }
 
   @Override
@@ -76,14 +86,15 @@ public class PRODUCT_GQLInput {
     PRODUCT_GQLInput that = (PRODUCT_GQLInput) o;
     return Objects.equals(name, that.name) &&
         Objects.equals(description, that.description) &&
-        categoryId == that.categoryId &&
-        productionCost == that.productionCost &&
-        Objects.equals(recipeIds, that.recipeIds);
+        Objects.equals(categoryId, that.categoryId) &&
+        Objects.equals(productionCost, that.productionCost) &&
+        Objects.equals(sellingPrice, that.sellingPrice) &&
+        Objects.equals(recipe, that.recipe);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, categoryId, productionCost, recipeIds);
+    return Objects.hash(name, description, categoryId, productionCost, sellingPrice, recipe);
   }
 
   public static Builder newBuilder() {
@@ -97,11 +108,13 @@ public class PRODUCT_GQLInput {
 
     private String description;
 
-    private int categoryId;
+    private String categoryId;
 
-    private double productionCost;
+    private BigDecimal productionCost;
 
-    private List<Integer> recipeIds;
+    private BigDecimal sellingPrice;
+
+    private List<RECIPE_ITEM_GQLInput> recipe;
 
     public PRODUCT_GQLInput build() {
       PRODUCT_GQLInput result = new PRODUCT_GQLInput();
@@ -109,7 +122,8 @@ public class PRODUCT_GQLInput {
       result.description = this.description;
       result.categoryId = this.categoryId;
       result.productionCost = this.productionCost;
-      result.recipeIds = this.recipeIds;
+      result.sellingPrice = this.sellingPrice;
+      result.recipe = this.recipe;
       return result;
     }
 
@@ -123,18 +137,23 @@ public class PRODUCT_GQLInput {
       return this;
     }
 
-    public Builder categoryId(int categoryId) {
+    public Builder categoryId(String categoryId) {
       this.categoryId = categoryId;
       return this;
     }
 
-    public Builder productionCost(double productionCost) {
+    public Builder productionCost(BigDecimal productionCost) {
       this.productionCost = productionCost;
       return this;
     }
 
-    public Builder recipeIds(List<Integer> recipeIds) {
-      this.recipeIds = recipeIds;
+    public Builder sellingPrice(BigDecimal sellingPrice) {
+      this.sellingPrice = sellingPrice;
+      return this;
+    }
+
+    public Builder recipe(List<RECIPE_ITEM_GQLInput> recipe) {
+      this.recipe = recipe;
       return this;
     }
   }

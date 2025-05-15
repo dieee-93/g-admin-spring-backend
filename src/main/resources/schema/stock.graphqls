@@ -3,18 +3,18 @@ scalar LocalDateTime
 
 type STOCK_ENTRY_GQL {
     id: ID!
-    rawMaterialId: ID!
+    rawMaterial: RAW_MATERIAL_GQL!
     quantity: BigDecimal!
     cost: BigDecimal!
     recipe: [RECIPE_ITEM_GQL]
     timestamp: String!
-
 }
 
 input STOCK_ENTRY_GQLInput {
     rawMaterialId: ID!
-    quantity: Float!
-    cost: Float!
+    quantity: BigDecimal!
+    cost: BigDecimal!
+    measurementUnit: String
     recipe: [RECIPE_ITEM_GQLInput]
 }
 

@@ -1,7 +1,6 @@
 package diego.soro.graphql.generated.types;
 
 import jakarta.annotation.Generated;
-import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -15,13 +14,13 @@ public class CATEGORY_GQLInput {
 
   private String type;
 
-  private int parentId;
+  private String parentId;
 
-  private List<Integer> childrenIds;
+  private List<String> childrenIds;
 
-  private List<Integer> productsIds;
+  private List<String> productsIds;
 
-  private List<Integer> rawMaterialsIds;
+  private List<String> rawMaterialsIds;
 
   public CATEGORY_GQLInput() {
   }
@@ -42,35 +41,35 @@ public class CATEGORY_GQLInput {
     this.type = type;
   }
 
-  public int getParentId() {
+  public String getParentId() {
     return parentId;
   }
 
-  public void setParentId(int parentId) {
+  public void setParentId(String parentId) {
     this.parentId = parentId;
   }
 
-  public List<Integer> getChildrenIds() {
+  public List<String> getChildrenIds() {
     return childrenIds;
   }
 
-  public void setChildrenIds(List<Integer> childrenIds) {
+  public void setChildrenIds(List<String> childrenIds) {
     this.childrenIds = childrenIds;
   }
 
-  public List<Integer> getProductsIds() {
+  public List<String> getProductsIds() {
     return productsIds;
   }
 
-  public void setProductsIds(List<Integer> productsIds) {
+  public void setProductsIds(List<String> productsIds) {
     this.productsIds = productsIds;
   }
 
-  public List<Integer> getRawMaterialsIds() {
+  public List<String> getRawMaterialsIds() {
     return rawMaterialsIds;
   }
 
-  public void setRawMaterialsIds(List<Integer> rawMaterialsIds) {
+  public void setRawMaterialsIds(List<String> rawMaterialsIds) {
     this.rawMaterialsIds = rawMaterialsIds;
   }
 
@@ -86,7 +85,7 @@ public class CATEGORY_GQLInput {
     CATEGORY_GQLInput that = (CATEGORY_GQLInput) o;
     return Objects.equals(name, that.name) &&
         Objects.equals(type, that.type) &&
-        parentId == that.parentId &&
+        Objects.equals(parentId, that.parentId) &&
         Objects.equals(childrenIds, that.childrenIds) &&
         Objects.equals(productsIds, that.productsIds) &&
         Objects.equals(rawMaterialsIds, that.rawMaterialsIds);
@@ -108,13 +107,13 @@ public class CATEGORY_GQLInput {
 
     private String type;
 
-    private int parentId;
+    private String parentId;
 
-    private List<Integer> childrenIds;
+    private List<String> childrenIds;
 
-    private List<Integer> productsIds;
+    private List<String> productsIds;
 
-    private List<Integer> rawMaterialsIds;
+    private List<String> rawMaterialsIds;
 
     public CATEGORY_GQLInput build() {
       CATEGORY_GQLInput result = new CATEGORY_GQLInput();
@@ -137,22 +136,22 @@ public class CATEGORY_GQLInput {
       return this;
     }
 
-    public Builder parentId(int parentId) {
+    public Builder parentId(String parentId) {
       this.parentId = parentId;
       return this;
     }
 
-    public Builder childrenIds(List<Integer> childrenIds) {
+    public Builder childrenIds(List<String> childrenIds) {
       this.childrenIds = childrenIds;
       return this;
     }
 
-    public Builder productsIds(List<Integer> productsIds) {
+    public Builder productsIds(List<String> productsIds) {
       this.productsIds = productsIds;
       return this;
     }
 
-    public Builder rawMaterialsIds(List<Integer> rawMaterialsIds) {
+    public Builder rawMaterialsIds(List<String> rawMaterialsIds) {
       this.rawMaterialsIds = rawMaterialsIds;
       return this;
     }

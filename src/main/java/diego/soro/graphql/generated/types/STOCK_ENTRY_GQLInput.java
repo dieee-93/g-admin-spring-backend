@@ -4,6 +4,7 @@ import jakarta.annotation.Generated;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
@@ -12,9 +13,11 @@ import java.util.Objects;
 public class STOCK_ENTRY_GQLInput {
   private String rawMaterialId;
 
-  private double quantity;
+  private BigDecimal quantity;
 
-  private double cost;
+  private BigDecimal cost;
+
+  private String measurementUnit;
 
   private List<RECIPE_ITEM_GQLInput> recipe;
 
@@ -29,20 +32,28 @@ public class STOCK_ENTRY_GQLInput {
     this.rawMaterialId = rawMaterialId;
   }
 
-  public double getQuantity() {
+  public BigDecimal getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(double quantity) {
+  public void setQuantity(BigDecimal quantity) {
     this.quantity = quantity;
   }
 
-  public double getCost() {
+  public BigDecimal getCost() {
     return cost;
   }
 
-  public void setCost(double cost) {
+  public void setCost(BigDecimal cost) {
     this.cost = cost;
+  }
+
+  public String getMeasurementUnit() {
+    return measurementUnit;
+  }
+
+  public void setMeasurementUnit(String measurementUnit) {
+    this.measurementUnit = measurementUnit;
   }
 
   public List<RECIPE_ITEM_GQLInput> getRecipe() {
@@ -55,7 +66,7 @@ public class STOCK_ENTRY_GQLInput {
 
   @Override
   public String toString() {
-    return "STOCK_ENTRY_GQLInput{rawMaterialId='" + rawMaterialId + "', quantity='" + quantity + "', cost='" + cost + "', recipe='" + recipe + "'}";
+    return "STOCK_ENTRY_GQLInput{rawMaterialId='" + rawMaterialId + "', quantity='" + quantity + "', cost='" + cost + "', measurementUnit='" + measurementUnit + "', recipe='" + recipe + "'}";
   }
 
   @Override
@@ -64,14 +75,15 @@ public class STOCK_ENTRY_GQLInput {
     if (o == null || getClass() != o.getClass()) return false;
     STOCK_ENTRY_GQLInput that = (STOCK_ENTRY_GQLInput) o;
     return Objects.equals(rawMaterialId, that.rawMaterialId) &&
-        quantity == that.quantity &&
-        cost == that.cost &&
+        Objects.equals(quantity, that.quantity) &&
+        Objects.equals(cost, that.cost) &&
+        Objects.equals(measurementUnit, that.measurementUnit) &&
         Objects.equals(recipe, that.recipe);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rawMaterialId, quantity, cost, recipe);
+    return Objects.hash(rawMaterialId, quantity, cost, measurementUnit, recipe);
   }
 
   public static Builder newBuilder() {
@@ -83,9 +95,11 @@ public class STOCK_ENTRY_GQLInput {
   public static class Builder {
     private String rawMaterialId;
 
-    private double quantity;
+    private BigDecimal quantity;
 
-    private double cost;
+    private BigDecimal cost;
+
+    private String measurementUnit;
 
     private List<RECIPE_ITEM_GQLInput> recipe;
 
@@ -94,6 +108,7 @@ public class STOCK_ENTRY_GQLInput {
       result.rawMaterialId = this.rawMaterialId;
       result.quantity = this.quantity;
       result.cost = this.cost;
+      result.measurementUnit = this.measurementUnit;
       result.recipe = this.recipe;
       return result;
     }
@@ -103,13 +118,18 @@ public class STOCK_ENTRY_GQLInput {
       return this;
     }
 
-    public Builder quantity(double quantity) {
+    public Builder quantity(BigDecimal quantity) {
       this.quantity = quantity;
       return this;
     }
 
-    public Builder cost(double cost) {
+    public Builder cost(BigDecimal cost) {
       this.cost = cost;
+      return this;
+    }
+
+    public Builder measurementUnit(String measurementUnit) {
+      this.measurementUnit = measurementUnit;
       return this;
     }
 

@@ -5,7 +5,7 @@
 {
   getStockEntries {
     id
-    rawMaterialId
+    rawMaterial
     quantity
     cost
     recipe
