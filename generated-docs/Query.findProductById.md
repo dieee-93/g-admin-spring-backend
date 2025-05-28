@@ -13,8 +13,6 @@
     name
     description
     category
-    productionCost
-    sellingPrice
     measurementUnit
     recipe
   }

@@ -6,7 +6,6 @@
   findAll {
     id
     name
-    type
     parent
     children
     products

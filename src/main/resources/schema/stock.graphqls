@@ -1,5 +1,5 @@
 scalar BigDecimal
-scalar LocalDateTime
+scalar DateTime
 
 type STOCK_ENTRY_GQL {
     id: ID!
@@ -7,7 +7,7 @@ type STOCK_ENTRY_GQL {
     quantity: BigDecimal!
     cost: BigDecimal!
     recipe: [RECIPE_ITEM_GQL]
-    timestamp: String!
+    creationDate: DateTime!
 }
 
 input STOCK_ENTRY_GQLInput {
@@ -18,25 +18,32 @@ input STOCK_ENTRY_GQLInput {
     recipe: [RECIPE_ITEM_GQLInput]
 }
 
-type CREATE_STOCK_ENTRY_RESPONSE {
-    "Similar to HTTP status code, represents the status of the mutation"
-    code: Int!
-    "Indicates whether the mutation was successful"
-    success: Boolean!
-    "Human-readable message for the UI"
-    message: String!
-    "The newly created listing"
-    stock: STOCK_ENTRY_GQL
+type STOCK_SNAPSHOT_GQL {
+    id: ID!
+    rawMaterial: RAW_MATERIAL_GQL!
+    quantity: BigDecimal!
+    cost: BigDecimal!
+    measurementUnit: String
 }
 
+type STOCK_SNAPSHOT_GQLInput {
+    rawMaterialId: ID!
+    quantity: BigDecimal!
+    cost: BigDecimal!
+    measurementUnit: String
+}
+
+
 extend type Query {
-    getStockEntries: [STOCK_ENTRY_GQL]!
+    findAllStockEntries: [STOCK_ENTRY_GQL]!
+    findAllStockSnapshots: [STOCK_SNAPSHOT_GQL]!
+    findStockSnapshotById(id: ID!): STOCK_SNAPSHOT_GQL
     findStockEntryById(id: ID!): STOCK_ENTRY_GQL
     getStockEntryCount: Int!
 }
 
 extend type Mutation {
-    createStockEntry(stock: STOCK_ENTRY_GQLInput!): CREATE_STOCK_ENTRY_RESPONSE!
+    createStockEntry(stock: STOCK_ENTRY_GQLInput!): STOCK_ENTRY_GQL!
     updateStockEntry(id: ID!, stock: STOCK_ENTRY_GQLInput!): STOCK_ENTRY_GQL
     deleteStockEntry(id: ID!): Boolean
 }

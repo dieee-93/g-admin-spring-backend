@@ -1,10 +1,11 @@
 // ================================
-// ProductDataLoader.java
+// StockEntryDataLoader.java
 // ================================
 package diego.soro.model.product.dataloader;
 
 import com.netflix.graphql.dgs.DgsComponent;
 
+import com.netflix.graphql.dgs.DgsDataLoader;
 import diego.soro.model.product.Product;
 import diego.soro.model.product.repository.ProductRepository;
 import org.dataloader.MappedBatchLoader;
@@ -14,6 +15,7 @@ import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
 @DgsComponent
+@DgsDataLoader(name = "productLoader")
 public class ProductDataLoader implements MappedBatchLoader<Long, Product> {
 
     @Autowired

@@ -4,7 +4,6 @@ import jakarta.annotation.Generated;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
@@ -18,10 +17,6 @@ public class PRODUCT_GQL {
   private String description;
 
   private CATEGORY_GQL category;
-
-  private BigDecimal productionCost;
-
-  private BigDecimal sellingPrice;
 
   private String measurementUnit;
 
@@ -62,22 +57,6 @@ public class PRODUCT_GQL {
     this.category = category;
   }
 
-  public BigDecimal getProductionCost() {
-    return productionCost;
-  }
-
-  public void setProductionCost(BigDecimal productionCost) {
-    this.productionCost = productionCost;
-  }
-
-  public BigDecimal getSellingPrice() {
-    return sellingPrice;
-  }
-
-  public void setSellingPrice(BigDecimal sellingPrice) {
-    this.sellingPrice = sellingPrice;
-  }
-
   public String getMeasurementUnit() {
     return measurementUnit;
   }
@@ -96,7 +75,7 @@ public class PRODUCT_GQL {
 
   @Override
   public String toString() {
-    return "PRODUCT_GQL{id='" + id + "', name='" + name + "', description='" + description + "', category='" + category + "', productionCost='" + productionCost + "', sellingPrice='" + sellingPrice + "', measurementUnit='" + measurementUnit + "', recipe='" + recipe + "'}";
+    return "PRODUCT_GQL{id='" + id + "', name='" + name + "', description='" + description + "', category='" + category + "', measurementUnit='" + measurementUnit + "', recipe='" + recipe + "'}";
   }
 
   @Override
@@ -108,15 +87,13 @@ public class PRODUCT_GQL {
         Objects.equals(name, that.name) &&
         Objects.equals(description, that.description) &&
         Objects.equals(category, that.category) &&
-        Objects.equals(productionCost, that.productionCost) &&
-        Objects.equals(sellingPrice, that.sellingPrice) &&
         Objects.equals(measurementUnit, that.measurementUnit) &&
         Objects.equals(recipe, that.recipe);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, category, productionCost, sellingPrice, measurementUnit, recipe);
+    return Objects.hash(id, name, description, category, measurementUnit, recipe);
   }
 
   public static Builder newBuilder() {
@@ -134,10 +111,6 @@ public class PRODUCT_GQL {
 
     private CATEGORY_GQL category;
 
-    private BigDecimal productionCost;
-
-    private BigDecimal sellingPrice;
-
     private String measurementUnit;
 
     private List<RECIPE_ITEM_GQL> recipe;
@@ -148,8 +121,6 @@ public class PRODUCT_GQL {
       result.name = this.name;
       result.description = this.description;
       result.category = this.category;
-      result.productionCost = this.productionCost;
-      result.sellingPrice = this.sellingPrice;
       result.measurementUnit = this.measurementUnit;
       result.recipe = this.recipe;
       return result;
@@ -172,16 +143,6 @@ public class PRODUCT_GQL {
 
     public Builder category(CATEGORY_GQL category) {
       this.category = category;
-      return this;
-    }
-
-    public Builder productionCost(BigDecimal productionCost) {
-      this.productionCost = productionCost;
-      return this;
-    }
-
-    public Builder sellingPrice(BigDecimal sellingPrice) {
-      this.sellingPrice = sellingPrice;
       return this;
     }
 

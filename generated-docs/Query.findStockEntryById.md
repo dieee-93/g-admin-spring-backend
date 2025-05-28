@@ -14,7 +14,7 @@
     quantity
     cost
     recipe
-    timestamp
+    creationDate
   }
 }
 

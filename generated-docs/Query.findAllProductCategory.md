@@ -6,7 +6,6 @@
   findAllProductCategory {
     id
     name
-    type
     parent
     children
     products

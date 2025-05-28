@@ -7,13 +7,15 @@ import java.util.List;
 
 public interface IRawMaterialService {
 
-    List<RawMaterial> getRawMaterials();
+    List<RawMaterial> findRawMaterials();
 
     RawMaterial findRawMaterialById(Long id);
 
+    RawMaterial findRawMaterialById(String id);
+
     void removeRawMaterial(Long id);
 
-    void saveRawMaterial(RawMaterial rawMaterial);
+    RawMaterial saveRawMaterial(RawMaterial rawMaterial);
 
     void updateRawMaterial(RawMaterial rawMaterial);
 }

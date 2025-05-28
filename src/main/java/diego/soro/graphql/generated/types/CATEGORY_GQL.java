@@ -14,8 +14,6 @@ public class CATEGORY_GQL {
 
   private String name;
 
-  private String type;
-
   private CATEGORY_GQL _parent;
 
   private List<CATEGORY_GQL> children;
@@ -41,14 +39,6 @@ public class CATEGORY_GQL {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
   }
 
   public CATEGORY_GQL getParent() {
@@ -85,7 +75,7 @@ public class CATEGORY_GQL {
 
   @Override
   public String toString() {
-    return "CATEGORY_GQL{id='" + id + "', name='" + name + "', type='" + type + "', parent='" + _parent + "', children='" + children + "', products='" + products + "', rawMaterials='" + rawMaterials + "'}";
+    return "CATEGORY_GQL{id='" + id + "', name='" + name + "', parent='" + _parent + "', children='" + children + "', products='" + products + "', rawMaterials='" + rawMaterials + "'}";
   }
 
   @Override
@@ -95,7 +85,6 @@ public class CATEGORY_GQL {
     CATEGORY_GQL that = (CATEGORY_GQL) o;
     return Objects.equals(id, that.id) &&
         Objects.equals(name, that.name) &&
-        Objects.equals(type, that.type) &&
         Objects.equals(_parent, that._parent) &&
         Objects.equals(children, that.children) &&
         Objects.equals(products, that.products) &&
@@ -104,7 +93,7 @@ public class CATEGORY_GQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, type, _parent, children, products, rawMaterials);
+    return Objects.hash(id, name, _parent, children, products, rawMaterials);
   }
 
   public static Builder newBuilder() {
@@ -118,8 +107,6 @@ public class CATEGORY_GQL {
 
     private String name;
 
-    private String type;
-
     private CATEGORY_GQL _parent;
 
     private List<CATEGORY_GQL> children;
@@ -132,7 +119,6 @@ public class CATEGORY_GQL {
       CATEGORY_GQL result = new CATEGORY_GQL();
       result.id = this.id;
       result.name = this.name;
-      result.type = this.type;
       result._parent = this._parent;
       result.children = this.children;
       result.products = this.products;
@@ -147,11 +133,6 @@ public class CATEGORY_GQL {
 
     public Builder name(String name) {
       this.name = name;
-      return this;
-    }
-
-    public Builder type(String type) {
-      this.type = type;
       return this;
     }
 

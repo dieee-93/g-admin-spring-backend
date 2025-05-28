@@ -6,7 +6,6 @@
   findAllRawMaterialCategory {
     id
     name
-    type
     parent
     children
     products

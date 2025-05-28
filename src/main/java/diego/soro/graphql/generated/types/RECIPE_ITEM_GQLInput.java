@@ -14,6 +14,8 @@ public class RECIPE_ITEM_GQLInput {
 
   private String rawMaterialId;
 
+  private String stockEntryId;
+
   private BigDecimal quantity;
 
   private BigDecimal cost;
@@ -37,6 +39,14 @@ public class RECIPE_ITEM_GQLInput {
 
   public void setRawMaterialId(String rawMaterialId) {
     this.rawMaterialId = rawMaterialId;
+  }
+
+  public String getStockEntryId() {
+    return stockEntryId;
+  }
+
+  public void setStockEntryId(String stockEntryId) {
+    this.stockEntryId = stockEntryId;
   }
 
   public BigDecimal getQuantity() {
@@ -65,7 +75,7 @@ public class RECIPE_ITEM_GQLInput {
 
   @Override
   public String toString() {
-    return "RECIPE_ITEM_GQLInput{productId='" + productId + "', rawMaterialId='" + rawMaterialId + "', quantity='" + quantity + "', cost='" + cost + "', measurementUnit='" + measurementUnit + "'}";
+    return "RECIPE_ITEM_GQLInput{productId='" + productId + "', rawMaterialId='" + rawMaterialId + "', stockEntryId='" + stockEntryId + "', quantity='" + quantity + "', cost='" + cost + "', measurementUnit='" + measurementUnit + "'}";
   }
 
   @Override
@@ -75,6 +85,7 @@ public class RECIPE_ITEM_GQLInput {
     RECIPE_ITEM_GQLInput that = (RECIPE_ITEM_GQLInput) o;
     return Objects.equals(productId, that.productId) &&
         Objects.equals(rawMaterialId, that.rawMaterialId) &&
+        Objects.equals(stockEntryId, that.stockEntryId) &&
         Objects.equals(quantity, that.quantity) &&
         Objects.equals(cost, that.cost) &&
         Objects.equals(measurementUnit, that.measurementUnit);
@@ -82,7 +93,7 @@ public class RECIPE_ITEM_GQLInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(productId, rawMaterialId, quantity, cost, measurementUnit);
+    return Objects.hash(productId, rawMaterialId, stockEntryId, quantity, cost, measurementUnit);
   }
 
   public static Builder newBuilder() {
@@ -96,6 +107,8 @@ public class RECIPE_ITEM_GQLInput {
 
     private String rawMaterialId;
 
+    private String stockEntryId;
+
     private BigDecimal quantity;
 
     private BigDecimal cost;
@@ -106,6 +119,7 @@ public class RECIPE_ITEM_GQLInput {
       RECIPE_ITEM_GQLInput result = new RECIPE_ITEM_GQLInput();
       result.productId = this.productId;
       result.rawMaterialId = this.rawMaterialId;
+      result.stockEntryId = this.stockEntryId;
       result.quantity = this.quantity;
       result.cost = this.cost;
       result.measurementUnit = this.measurementUnit;
@@ -119,6 +133,11 @@ public class RECIPE_ITEM_GQLInput {
 
     public Builder rawMaterialId(String rawMaterialId) {
       this.rawMaterialId = rawMaterialId;
+      return this;
+    }
+
+    public Builder stockEntryId(String stockEntryId) {
+      this.stockEntryId = stockEntryId;
       return this;
     }
 

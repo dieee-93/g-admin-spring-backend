@@ -6,10 +6,9 @@ package diego.soro.model.recipe_item.datafetcher;
 import com.netflix.graphql.dgs.*;
 import diego.soro.graphql.generated.DgsConstants;
 import diego.soro.graphql.generated.types.RECIPE_ITEM_GQL;
-import diego.soro.model.product.Product;
-import diego.soro.model.product.dataloader.ProductDataLoader;
-import diego.soro.model.raw_material.RawMaterial;
-import diego.soro.model.raw_material.dataloaders.RawMaterialDataLoader;
+import diego.soro.model.recipe_item.dataloaders.RecipeItemByProductDataLoader;
+import diego.soro.model.recipe_item.dataloaders.RecipeItemByStockEntryDataloader;
+import diego.soro.model.stock.StockEntry;
 import org.dataloader.DataLoader;
 
 import java.util.concurrent.CompletableFuture;
@@ -18,17 +17,17 @@ import java.util.concurrent.CompletableFuture;
 @DgsComponent
 public class RecipeItemDataFetcher {
 
-    @DgsData(parentType = DgsConstants.RECIPE_ITEM_GQL.TYPE_NAME)
-    public CompletableFuture<Product> product(DgsDataFetchingEnvironment dfe) {
+    @DgsData(parentType = "PRODUCT_GQL", field = "recipe")
+    public CompletableFuture<RECIPE_ITEM_GQL> recipe(DgsDataFetchingEnvironment dfe) {
         RECIPE_ITEM_GQL item = dfe.getSource();
-        DataLoader<Long, Product> loader = dfe.getDataLoader(ProductDataLoader.class);
-        return loader.load(item);
+        DataLoader<Long, RECIPE_ITEM_GQL> loader = dfe.getDataLoader(RecipeItemByProductDataLoader.class);
+        return loader.load(Long.parseLong(item.getId()));
     }
 
-    @DgsData(parentType = DgsConstants.RECIPE_ITEM_GQL.TYPE_NAME)
-    public CompletableFuture<RawMaterial> rawMaterial(DgsDataFetchingEnvironment dfe) {
+    @DgsData(parentType = "STOCK_ENTRY_GQL", field = "recipe")
+    public CompletableFuture<StockEntry> stockEntry(DgsDataFetchingEnvironment dfe) {
         RECIPE_ITEM_GQL item = dfe.getSource();
-        DataLoader<Long, RawMaterial> loader = dfe.getDataLoader(RawMaterialDataLoader.class);
-        return loader.load(item.getRawMaterialId());
+        DataLoader<Long, StockEntry> loader = dfe.getDataLoader(RecipeItemByStockEntryDataloader.class);
+        return loader.load(Long.parseLong(item.getId()));
     }
 }

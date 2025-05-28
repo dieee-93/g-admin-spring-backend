@@ -11,12 +11,13 @@ package diego.soro.model.stock.service;
  import org.springframework.beans.factory.annotation.Autowired;
  import org.springframework.stereotype.Service;
 
+ import java.math.BigDecimal;
  import java.time.LocalDateTime;
  import java.util.List;
 
 @Service
  @RequiredArgsConstructor
- public class StockEntryService implements IStockService {
+ public class StockService implements IStockService {
 
      @Autowired
      private final StockEntryRepository stockEntryRepository;
@@ -25,25 +26,26 @@ package diego.soro.model.stock.service;
     @Autowired
     private final RawMaterialRepository rawMaterialRepository;
 
-     public List<StockEntry> getStockEntries() {
+     public List<StockEntry> findAllStockEntries() {
          return (List<StockEntry>) stockEntryRepository.findAll();
      }
      public StockEntry findById(Long id) {
          return stockEntryRepository.findById(id).orElseThrow(() ->new RuntimeException("Stock entry not found"));
      }
+     public List<StockSnapshot> findAllStockSnapshots() {
+         return stockSnapshotRepository.findAll();
+     }
 
      @Transactional
-     public StockEntry registerStockMovement(Long rawMaterialId, Double quantity, Double cost, String reason, String notes) {
+     public StockEntry saveStockEntry(Long rawMaterialId, BigDecimal quantity, BigDecimal cost) {
          RawMaterial rawMaterial = rawMaterialRepository.findById(rawMaterialId)
                  .orElseThrow(() -> new RuntimeException("Raw material not found"));
 
          StockEntry entry = new StockEntry();
          entry.setRawMaterial(rawMaterial);
          entry.setQuantity(quantity);
-         entry.setUnitCost(cost);
-         entry.setOperationType(reason);
-         entry.setNotes(notes);
-         entry.setTimestamp(LocalDateTime.now());
+         entry.setCost(cost);
+         entry.setCreationDate(LocalDateTime.now());
          stockEntryRepository.save(entry);
 
          updateSnapshot(rawMaterialId);
@@ -51,18 +53,15 @@ package diego.soro.model.stock.service;
          return entry;
      }
 
-     public void updateSnapshot(Long rawMaterialId) {
-         Double totalQuantity = stockEntryRepository.calculateTotalQuantity(rawMaterialId);
-         Double averageCost = stockEntryRepository.calculateAverageCost(rawMaterialId);
+
+
+    public void updateSnapshot(Long rawMaterialId) {
 
          StockSnapshot snapshot = stockSnapshotRepository.findById(rawMaterialId)
                  .orElse(new StockSnapshot());
 
          snapshot.setRawMaterialId(rawMaterialId);
          snapshot.setRawMaterial(rawMaterialRepository.findById(rawMaterialId).orElseThrow());
-         snapshot.setTotalQuantity(totalQuantity);
-         snapshot.setAverageCost(averageCost);
-         snapshot.setLastUpdated(LocalDateTime.now());
 
          stockSnapshotRepository.save(snapshot);
      }

@@ -2,6 +2,8 @@ package diego.soro.model.recipe_item.service;
 
 
 import diego.soro.model.raw_material.RawMaterial;
+import diego.soro.model.raw_material.repository.RawMaterialRepository;
+import diego.soro.model.recipe_item.RecipeItem;
 import diego.soro.model.recipe_item.repository.RecipeItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,32 +11,33 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class RawMaterialService implements IRawMaterialService {
+public class RecipeItemService implements IRecipeItemService {
     @Autowired
     private RecipeItemRepository repository;
 
     @Override
-    public List<RawMaterial> getRawMaterials() {
-        return (List<RawMaterial>) repository.findAll();
+    public List<RecipeItem> findRecipeItems() {
+        return repository.findAll();
     }
 
     @Override
-    public RawMaterial findRawMaterialById(Long id) {
+    public RecipeItem findById(Long id) {
         return repository.findById(id).get();
     }
 
     @Override
-    public void removeRawMaterial(Long id) {
+    public void removeRecipeItem(Long id) {
         repository.deleteById(id);
     }
 
     @Override
-    public void saveRawMaterial(RawMaterial rawMaterial) {
-        repository.save(rawMaterial);
+    public void saveRecipeItem(RecipeItem recipeItem) {
+        repository.save(recipeItem);
     }
 
+
     @Override
-    public void updateRawMaterial(RawMaterial rawMaterial) {
-        repository.save(rawMaterial);
+    public void updateRecipeItem(RecipeItem recipeItem) {
+        repository.save(recipeItem);
     }
 }

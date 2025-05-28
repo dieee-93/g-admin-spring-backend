@@ -15,7 +15,7 @@ public class RAW_MATERIAL_GQL {
 
   private CATEGORY_GQL category;
 
-  private String rawMaterialType;
+  private RAW_MATERIAL_TYPE rawMaterialType;
 
   public RAW_MATERIAL_GQL() {
   }
@@ -44,11 +44,11 @@ public class RAW_MATERIAL_GQL {
     this.category = category;
   }
 
-  public String getRawMaterialType() {
+  public RAW_MATERIAL_TYPE getRawMaterialType() {
     return rawMaterialType;
   }
 
-  public void setRawMaterialType(String rawMaterialType) {
+  public void setRawMaterialType(RAW_MATERIAL_TYPE rawMaterialType) {
     this.rawMaterialType = rawMaterialType;
   }
 
@@ -86,7 +86,7 @@ public class RAW_MATERIAL_GQL {
 
     private CATEGORY_GQL category;
 
-    private String rawMaterialType;
+    private RAW_MATERIAL_TYPE rawMaterialType;
 
     public RAW_MATERIAL_GQL build() {
       RAW_MATERIAL_GQL result = new RAW_MATERIAL_GQL();
@@ -112,7 +112,7 @@ public class RAW_MATERIAL_GQL {
       return this;
     }
 
-    public Builder rawMaterialType(String rawMaterialType) {
+    public Builder rawMaterialType(RAW_MATERIAL_TYPE rawMaterialType) {
       this.rawMaterialType = rawMaterialType;
       return this;
     }

@@ -13,7 +13,7 @@ public class RAW_MATERIAL_GQLInput {
 
   private String category;
 
-  private String rawMaterialType;
+  private RAW_MATERIAL_TYPE rawMaterialType;
 
   public RAW_MATERIAL_GQLInput() {
   }
@@ -34,11 +34,11 @@ public class RAW_MATERIAL_GQLInput {
     this.category = category;
   }
 
-  public String getRawMaterialType() {
+  public RAW_MATERIAL_TYPE getRawMaterialType() {
     return rawMaterialType;
   }
 
-  public void setRawMaterialType(String rawMaterialType) {
+  public void setRawMaterialType(RAW_MATERIAL_TYPE rawMaterialType) {
     this.rawMaterialType = rawMaterialType;
   }
 
@@ -73,7 +73,7 @@ public class RAW_MATERIAL_GQLInput {
 
     private String category;
 
-    private String rawMaterialType;
+    private RAW_MATERIAL_TYPE rawMaterialType;
 
     public RAW_MATERIAL_GQLInput build() {
       RAW_MATERIAL_GQLInput result = new RAW_MATERIAL_GQLInput();
@@ -93,7 +93,7 @@ public class RAW_MATERIAL_GQLInput {
       return this;
     }
 
-    public Builder rawMaterialType(String rawMaterialType) {
+    public Builder rawMaterialType(RAW_MATERIAL_TYPE rawMaterialType) {
       this.rawMaterialType = rawMaterialType;
       return this;
     }

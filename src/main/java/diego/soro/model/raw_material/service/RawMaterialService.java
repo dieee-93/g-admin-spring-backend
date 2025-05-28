@@ -1,8 +1,11 @@
 package diego.soro.model.raw_material.service;
 
 
+import diego.soro.exception.InvalidArgument;
 import diego.soro.model.raw_material.RawMaterial;
+import diego.soro.model.raw_material.exceptions.RawMaterialNotFound;
 import diego.soro.model.raw_material.repository.RawMaterialRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,13 +17,21 @@ public class RawMaterialService implements IRawMaterialService {
     private RawMaterialRepository repository;
 
     @Override
-    public List<RawMaterial> getRawMaterials() {
+    public List<RawMaterial> findRawMaterials() {
         return (List<RawMaterial>) repository.findAll();
     }
 
     @Override
     public RawMaterial findRawMaterialById(Long id) {
-        return repository.findById(id).get();
+        return repository.findById(id).orElseThrow(() -> new RawMaterialNotFound(id));
+    }
+    @Override
+    public RawMaterial findRawMaterialById(String id) {
+        if (!id.isEmpty()){
+            return repository.findById(Long.parseLong(id)).orElseThrow(() -> new RawMaterialNotFound(Long.parseLong(id)));
+        } else {
+            throw  new InvalidArgument("Empty id");
+        }
     }
 
     @Override
@@ -29,8 +40,8 @@ public class RawMaterialService implements IRawMaterialService {
     }
 
     @Override
-    public void saveRawMaterial(RawMaterial rawMaterial) {
-        repository.save(rawMaterial);
+    public RawMaterial saveRawMaterial(@Valid RawMaterial rawMaterial) {
+       return repository.save(rawMaterial);
     }
 
     @Override

@@ -1,7 +1,6 @@
 type CATEGORY_GQL {
     id: ID!
     name: String!
-    type: String!
     parent: CATEGORY_GQL
     children: [CATEGORY_GQL]
     products: [PRODUCT_GQL]
@@ -9,28 +8,16 @@ type CATEGORY_GQL {
 }
 input CATEGORY_GQLInput {
     name: String!
-    type: String!
-    parentId: ID!
+    parentId: ID
     childrenIds: [ID]
     productsIds: [ID]
     rawMaterialsIds: [ID]
 }
 
-type CREATE_CATEGORY_RESPONSE {
-    "Similar to HTTP status code, represents the status of the mutation"
-    code: Int!
-    "Indicates whether the mutation was successful"
-    success: Boolean!
-    "Human-readable message for the UI"
-    message: String!
-    "The newly created listing"
-    category: CATEGORY_GQL
-}
-
 extend type Query {
-    findAll: [CATEGORY_GQL]!
-    findAllRawMaterialCategory: [CATEGORY_GQL]!
-    findAllProductCategory: [CATEGORY_GQL]!
+    findAllCategories: [CATEGORY_GQL]!
+    findAllRawMaterialCategories: [CATEGORY_GQL]!
+    findAllProductCategories: [CATEGORY_GQL]!
     findCategoryById(id: ID!): CATEGORY_GQL
     getRawMaterialCategoryCount: Int!
     getProductCategoryCount: Int!
@@ -38,7 +25,7 @@ extend type Query {
 
 }
 extend type Mutation {
-    createCategory(category: CATEGORY_GQLInput!): CREATE_CATEGORY_RESPONSE!
+    createCategory(category: CATEGORY_GQLInput!): CATEGORY_GQL!
     updateCategory(id: ID!, category: CATEGORY_GQLInput!): CATEGORY_GQL
     deleteCategory(id: ID!): Boolean
 

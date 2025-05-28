@@ -12,8 +12,6 @@ import java.util.Objects;
 public class CATEGORY_GQLInput {
   private String name;
 
-  private String type;
-
   private String parentId;
 
   private List<String> childrenIds;
@@ -31,14 +29,6 @@ public class CATEGORY_GQLInput {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
   }
 
   public String getParentId() {
@@ -75,7 +65,7 @@ public class CATEGORY_GQLInput {
 
   @Override
   public String toString() {
-    return "CATEGORY_GQLInput{name='" + name + "', type='" + type + "', parentId='" + parentId + "', childrenIds='" + childrenIds + "', productsIds='" + productsIds + "', rawMaterialsIds='" + rawMaterialsIds + "'}";
+    return "CATEGORY_GQLInput{name='" + name + "', parentId='" + parentId + "', childrenIds='" + childrenIds + "', productsIds='" + productsIds + "', rawMaterialsIds='" + rawMaterialsIds + "'}";
   }
 
   @Override
@@ -84,7 +74,6 @@ public class CATEGORY_GQLInput {
     if (o == null || getClass() != o.getClass()) return false;
     CATEGORY_GQLInput that = (CATEGORY_GQLInput) o;
     return Objects.equals(name, that.name) &&
-        Objects.equals(type, that.type) &&
         Objects.equals(parentId, that.parentId) &&
         Objects.equals(childrenIds, that.childrenIds) &&
         Objects.equals(productsIds, that.productsIds) &&
@@ -93,7 +82,7 @@ public class CATEGORY_GQLInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type, parentId, childrenIds, productsIds, rawMaterialsIds);
+    return Objects.hash(name, parentId, childrenIds, productsIds, rawMaterialsIds);
   }
 
   public static Builder newBuilder() {
@@ -104,8 +93,6 @@ public class CATEGORY_GQLInput {
   @diego.soro.graphql.generated.Generated
   public static class Builder {
     private String name;
-
-    private String type;
 
     private String parentId;
 
@@ -118,7 +105,6 @@ public class CATEGORY_GQLInput {
     public CATEGORY_GQLInput build() {
       CATEGORY_GQLInput result = new CATEGORY_GQLInput();
       result.name = this.name;
-      result.type = this.type;
       result.parentId = this.parentId;
       result.childrenIds = this.childrenIds;
       result.productsIds = this.productsIds;
@@ -128,11 +114,6 @@ public class CATEGORY_GQLInput {
 
     public Builder name(String name) {
       this.name = name;
-      return this;
-    }
-
-    public Builder type(String type) {
-      this.type = type;
       return this;
     }
 

@@ -35,12 +35,12 @@ public class StockEntry {
     private BigDecimal cost;// Costo por unidad, ml gr)A
 
 
-    @OneToMany(mappedBy = "stockEntry")
+    @OneToMany(mappedBy = "stockEntry", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RecipeItem> recipe;
 
     @Column(nullable = false)
     @CreatedDate
-    private LocalDateTime timestamp;
+    private LocalDateTime creationDate;
 
 
 }

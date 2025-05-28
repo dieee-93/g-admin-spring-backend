@@ -3,8 +3,6 @@ type PRODUCT_GQL {
     name: String!
     description: String
     category: CATEGORY_GQL!
-    productionCost: BigDecimal!
-    sellingPrice: BigDecimal!
     measurementUnit: String
     recipe: [RECIPE_ITEM_GQL!]
 }

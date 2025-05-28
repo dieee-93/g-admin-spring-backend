@@ -20,7 +20,7 @@ Thumbs.db
 
 # Archivos de configuración sensibles
 application.properties
-env.properties
+src/main/resources/env.properties
 
 # Archivos generados por Maven
 pom.xml.tag

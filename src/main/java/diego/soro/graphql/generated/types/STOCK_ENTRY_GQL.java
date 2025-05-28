@@ -5,6 +5,7 @@ import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -21,7 +22,7 @@ public class STOCK_ENTRY_GQL {
 
   private List<RECIPE_ITEM_GQL> recipe;
 
-  private String timestamp;
+  private LocalDateTime creationDate;
 
   public STOCK_ENTRY_GQL() {
   }
@@ -66,17 +67,17 @@ public class STOCK_ENTRY_GQL {
     this.recipe = recipe;
   }
 
-  public String getTimestamp() {
-    return timestamp;
+  public LocalDateTime getCreationDate() {
+    return creationDate;
   }
 
-  public void setTimestamp(String timestamp) {
-    this.timestamp = timestamp;
+  public void setCreationDate(LocalDateTime creationDate) {
+    this.creationDate = creationDate;
   }
 
   @Override
   public String toString() {
-    return "STOCK_ENTRY_GQL{id='" + id + "', rawMaterial='" + rawMaterial + "', quantity='" + quantity + "', cost='" + cost + "', recipe='" + recipe + "', timestamp='" + timestamp + "'}";
+    return "STOCK_ENTRY_GQL{id='" + id + "', rawMaterial='" + rawMaterial + "', quantity='" + quantity + "', cost='" + cost + "', recipe='" + recipe + "', creationDate='" + creationDate + "'}";
   }
 
   @Override
@@ -89,12 +90,12 @@ public class STOCK_ENTRY_GQL {
         Objects.equals(quantity, that.quantity) &&
         Objects.equals(cost, that.cost) &&
         Objects.equals(recipe, that.recipe) &&
-        Objects.equals(timestamp, that.timestamp);
+        Objects.equals(creationDate, that.creationDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, rawMaterial, quantity, cost, recipe, timestamp);
+    return Objects.hash(id, rawMaterial, quantity, cost, recipe, creationDate);
   }
 
   public static Builder newBuilder() {
@@ -114,7 +115,7 @@ public class STOCK_ENTRY_GQL {
 
     private List<RECIPE_ITEM_GQL> recipe;
 
-    private String timestamp;
+    private LocalDateTime creationDate;
 
     public STOCK_ENTRY_GQL build() {
       STOCK_ENTRY_GQL result = new STOCK_ENTRY_GQL();
@@ -123,7 +124,7 @@ public class STOCK_ENTRY_GQL {
       result.quantity = this.quantity;
       result.cost = this.cost;
       result.recipe = this.recipe;
-      result.timestamp = this.timestamp;
+      result.creationDate = this.creationDate;
       return result;
     }
 
@@ -152,8 +153,8 @@ public class STOCK_ENTRY_GQL {
       return this;
     }
 
-    public Builder timestamp(String timestamp) {
-      this.timestamp = timestamp;
+    public Builder creationDate(LocalDateTime creationDate) {
+      this.creationDate = creationDate;
       return this;
     }
   }

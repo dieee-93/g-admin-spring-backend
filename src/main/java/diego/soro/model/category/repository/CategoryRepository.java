@@ -11,11 +11,11 @@ import java.util.List;
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 
     // Categorías donde la lista de productos está vacía (categorías de materias primas)
-    @Query("SELECT c FROM Category c WHERE SIZE(c.products) = 0")
+    @Query("SELECT DISTINCT c FROM Category c JOIN c.rawMaterials rm")
     List<Category> findProductCategories();
 
     // Categorías donde la lista de materias primas está vacía (categorías de productos)
-    @Query("SELECT c FROM Category c WHERE SIZE(c.rawMaterials) = 0")
+    @Query("SELECT DISTINCT c FROM Category c JOIN c.rawMaterials rm")
     List<Category> findRawMaterialCategories();
 
 }

@@ -33,7 +33,7 @@ public class ProductService implements IProductService {
         Product productToUpdate = repository.findById(id).get();
         productToUpdate.setName(product.getName());
         productToUpdate.setDescription(product.getDescription());
-        productToUpdate.setCategoryId(product.getCategoryId());
+        productToUpdate.setCategory(product.getCategory());
         productToUpdate.setProductionCost(product.getProductionCost());
         productToUpdate.setRecipe(product.getRecipe());
         return repository.save(productToUpdate);

@@ -1,5 +1,6 @@
     package diego.soro.model.category;
 
+    import diego.soro.model.category.validation.exclusive_association.ExclusiveAssociation;
     import diego.soro.model.product.Product;
     import diego.soro.model.raw_material.RawMaterial;
     import jakarta.persistence.*;
@@ -19,6 +20,7 @@
     @Setter
     @ToString
     @EqualsAndHashCode(of = "id")
+    @ExclusiveAssociation
 
     public class Category {
         @Id
@@ -43,4 +45,5 @@
 
         @OneToMany(mappedBy = "category")
         private List<RawMaterial> rawMaterials = new ArrayList<>();
+
     }

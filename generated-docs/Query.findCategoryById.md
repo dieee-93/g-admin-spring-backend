@@ -11,7 +11,6 @@
   findCategoryById(id: "random12345") {
     id
     name
-    type
     parent
     children
     products

@@ -2,6 +2,8 @@ package diego.soro.model.recipe_item;
 
 import diego.soro.model.product.Product;
 import diego.soro.model.raw_material.RawMaterial;
+import diego.soro.model.stock.StockEntry;
+import diego.soro.model.stock.StockSnapshot;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -26,8 +28,11 @@ public class RecipeItem {
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "raw_material_id")
-    private RawMaterial rawMaterial;
+    @JoinColumn(name = "stock_entry_id")
+    private StockEntry stockEntry;
+    @ManyToOne
+    @JoinColumn(name = "stock_snapshot_id")
+    private StockSnapshot stockSnapshot;
 
     @Column(nullable = true)
     private BigDecimal quantity;

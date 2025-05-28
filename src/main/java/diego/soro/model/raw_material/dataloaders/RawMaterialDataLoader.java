@@ -4,6 +4,7 @@
 package diego.soro.model.raw_material.dataloaders;
 
 import com.netflix.graphql.dgs.DgsComponent;
+import com.netflix.graphql.dgs.DgsDataLoader;
 import diego.soro.model.raw_material.RawMaterial;
 import diego.soro.model.raw_material.repository.RawMaterialRepository;
 import org.dataloader.MappedBatchLoader;
@@ -14,6 +15,7 @@ import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
 @DgsComponent
+@DgsDataLoader(name = "rawMaterialLoader")
 public class RawMaterialDataLoader implements MappedBatchLoader<Long, RawMaterial> {
 
     @Autowired

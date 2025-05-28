@@ -6,7 +6,7 @@
   getRecipeItems {
     id
     product
-    rawMaterial
+    stockEntry
     quantity
     cost
     measurementUnit

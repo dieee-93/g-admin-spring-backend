@@ -16,7 +16,7 @@ public class RawMaterialController {
 
     @GetMapping
     public List<RawMaterial> getRawMaterials() {
-        return service.getRawMaterials();
+        return service.findRawMaterials();
     }
 
     @GetMapping("/{id}")

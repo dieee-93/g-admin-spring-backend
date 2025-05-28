@@ -14,7 +14,7 @@ public class RECIPE_ITEM_GQL {
 
   private PRODUCT_GQL product;
 
-  private RAW_MATERIAL_GQL rawMaterial;
+  private STOCK_ENTRY_GQL stockEntry;
 
   private BigDecimal quantity;
 
@@ -41,12 +41,12 @@ public class RECIPE_ITEM_GQL {
     this.product = product;
   }
 
-  public RAW_MATERIAL_GQL getRawMaterial() {
-    return rawMaterial;
+  public STOCK_ENTRY_GQL getStockEntry() {
+    return stockEntry;
   }
 
-  public void setRawMaterial(RAW_MATERIAL_GQL rawMaterial) {
-    this.rawMaterial = rawMaterial;
+  public void setStockEntry(STOCK_ENTRY_GQL stockEntry) {
+    this.stockEntry = stockEntry;
   }
 
   public BigDecimal getQuantity() {
@@ -75,7 +75,7 @@ public class RECIPE_ITEM_GQL {
 
   @Override
   public String toString() {
-    return "RECIPE_ITEM_GQL{id='" + id + "', product='" + product + "', rawMaterial='" + rawMaterial + "', quantity='" + quantity + "', cost='" + cost + "', measurementUnit='" + measurementUnit + "'}";
+    return "RECIPE_ITEM_GQL{id='" + id + "', product='" + product + "', stockEntry='" + stockEntry + "', quantity='" + quantity + "', cost='" + cost + "', measurementUnit='" + measurementUnit + "'}";
   }
 
   @Override
@@ -85,7 +85,7 @@ public class RECIPE_ITEM_GQL {
     RECIPE_ITEM_GQL that = (RECIPE_ITEM_GQL) o;
     return Objects.equals(id, that.id) &&
         Objects.equals(product, that.product) &&
-        Objects.equals(rawMaterial, that.rawMaterial) &&
+        Objects.equals(stockEntry, that.stockEntry) &&
         Objects.equals(quantity, that.quantity) &&
         Objects.equals(cost, that.cost) &&
         Objects.equals(measurementUnit, that.measurementUnit);
@@ -93,7 +93,7 @@ public class RECIPE_ITEM_GQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, product, rawMaterial, quantity, cost, measurementUnit);
+    return Objects.hash(id, product, stockEntry, quantity, cost, measurementUnit);
   }
 
   public static Builder newBuilder() {
@@ -107,7 +107,7 @@ public class RECIPE_ITEM_GQL {
 
     private PRODUCT_GQL product;
 
-    private RAW_MATERIAL_GQL rawMaterial;
+    private STOCK_ENTRY_GQL stockEntry;
 
     private BigDecimal quantity;
 
@@ -119,7 +119,7 @@ public class RECIPE_ITEM_GQL {
       RECIPE_ITEM_GQL result = new RECIPE_ITEM_GQL();
       result.id = this.id;
       result.product = this.product;
-      result.rawMaterial = this.rawMaterial;
+      result.stockEntry = this.stockEntry;
       result.quantity = this.quantity;
       result.cost = this.cost;
       result.measurementUnit = this.measurementUnit;
@@ -136,8 +136,8 @@ public class RECIPE_ITEM_GQL {
       return this;
     }
 
-    public Builder rawMaterial(RAW_MATERIAL_GQL rawMaterial) {
-      this.rawMaterial = rawMaterial;
+    public Builder stockEntry(STOCK_ENTRY_GQL stockEntry) {
+      this.stockEntry = stockEntry;
       return this;
     }
 

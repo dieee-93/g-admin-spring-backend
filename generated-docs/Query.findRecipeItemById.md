@@ -11,7 +11,7 @@
   findRecipeItemById(id: "random12345") {
     id
     product
-    rawMaterial
+    stockEntry
     quantity
     cost
     measurementUnit
