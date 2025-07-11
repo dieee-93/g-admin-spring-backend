@@ -3,14 +3,7 @@
 ## Example
 ```graphql
 {
-  findAllCategories {
-    id
-    name
-    parent
-    children
-    products
-    rawMaterials
-  }
+  findAllCategories
 }
 
 ```

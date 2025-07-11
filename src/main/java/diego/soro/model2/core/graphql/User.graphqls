@@ -1,0 +1,37 @@
+type UserGQL {
+    id: ID!
+    firstName: String!
+    lastName: String
+    email: String!
+    username: String!
+    keycloakId: ID
+    roles: [RoleGQL!]!
+    branches: [BranchGQL!]!
+    active: Boolean!
+    createdAt: String
+    updatedAt: String
+}
+
+extend type Query {
+    usersByCompany(companyId: ID!): [UserGQL!]!
+}
+
+input CreateUserInput {
+    email: String!
+    password: String!
+    firstName: String
+    lastName: String
+    fullAddress: String
+    zipCode: String
+    phone: String
+    registerDate: String
+    roles: [String!]
+}
+type CreateUserResponse {
+    status: String!
+    message: String!
+}
+extend type Mutation {
+    createUser(input: CreateUserInput!): CreateUserResponse!
+}
+

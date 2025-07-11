@@ -13,7 +13,7 @@ input RAW_MATERIAL_GQLInput {
 type RAW_MATERIAL_GQL {
     id: ID!
     name: String!
-    category: CATEGORY_GQL!
+    category: RAW_MATERIAL_CATEGORY_GQL!
     rawMaterialType: RAW_MATERIAL_TYPE!
 }
 

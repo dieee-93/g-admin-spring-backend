@@ -2,7 +2,7 @@ type PRODUCT_GQL {
     id: ID!
     name: String!
     description: String
-    category: CATEGORY_GQL!
+    category: PRODUCT_CATEGORY_GQL!
     measurementUnit: String
     recipe: [RECIPE_ITEM_GQL!]
 }
@@ -16,17 +16,6 @@ input PRODUCT_GQLInput {
     recipe: [RECIPE_ITEM_GQLInput!]  # aquí la estructura completa de la receta
 }
 
-type CREATE_PRODUCT_RESPONSE {
-    "Similar to HTTP status code, represents the status of the mutation"
-    code: Int!
-    "Indicates whether the mutation was successful"
-    success: Boolean!
-    "Human-readable message for the UI"
-    message: String!
-    "The newly created listing"
-    product: PRODUCT_GQL
-}
-
 extend type Query {
     getProducts: [PRODUCT_GQL]!
     findProductById(id: ID!): PRODUCT_GQL
@@ -34,7 +23,7 @@ extend type Query {
 }
 
 extend type Mutation {
-    createProduct(product: PRODUCT_GQLInput!): CREATE_PRODUCT_RESPONSE!
+    createProduct(product: PRODUCT_GQLInput!): PRODUCT_GQL!
     updateProduct(id: ID!, product: PRODUCT_GQLInput!): PRODUCT_GQL
     deleteProduct(id: ID!): Boolean
 }

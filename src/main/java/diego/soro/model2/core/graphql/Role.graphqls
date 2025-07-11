@@ -1,0 +1,27 @@
+type RoleGQL {
+    id: ID!
+    name: String!
+    description: String
+    isSystem: Boolean!
+    permissions: [PermissionGQL!]!
+    parentRole: RoleGQL
+    createdAt: String
+    updatedAt: String
+    active: Boolean!
+}
+
+input CreateRoleInput {
+    name: String!
+    description: String
+    isSystem: Boolean
+    parentRoleId: ID
+    permissionIds: [ID!]
+}
+
+extend type Mutation {
+    createRole(input: CreateRoleInput!): RoleGQL!
+}
+
+extend type Query {
+    rolesByCompany(companyId: ID!): [RoleGQL!]!
+}

@@ -11,157 +11,235 @@ public class DgsConstants {
 
   @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
   @Generated
-  public static class CATEGORY_GQL {
-    public static final String TYPE_NAME = "CATEGORY_GQL";
+  public static class BRANCHGQL {
+    public static final String TYPE_NAME = "BranchGQL";
 
     public static final String Id = "id";
 
     public static final String Name = "name";
 
-    public static final String Parent = "parent";
+    public static final String Code = "code";
 
-    public static final String Children = "children";
+    public static final String Address = "address";
 
-    public static final String Products = "products";
+    public static final String Phone = "phone";
 
-    public static final String RawMaterials = "rawMaterials";
+    public static final String Email = "email";
+
+    public static final String IsMain = "isMain";
+
+    public static final String Company = "company";
+
+    public static final String CreatedAt = "createdAt";
+
+    public static final String UpdatedAt = "updatedAt";
+
+    public static final String Active = "active";
   }
 
   @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
   @Generated
-  public static class RAW_MATERIAL_GQL {
-    public static final String TYPE_NAME = "RAW_MATERIAL_GQL";
+  public static class COMPANYGQL {
+    public static final String TYPE_NAME = "CompanyGQL";
 
     public static final String Id = "id";
 
     public static final String Name = "name";
 
-    public static final String Category = "category";
+    public static final String TaxId = "taxId";
 
-    public static final String RawMaterialType = "rawMaterialType";
+    public static final String Email = "email";
+
+    public static final String Phone = "phone";
+
+    public static final String Address = "address";
+
+    public static final String Country = "country";
+
+    public static final String Timezone = "timezone";
+
+    public static final String CreatedAt = "createdAt";
+
+    public static final String UpdatedAt = "updatedAt";
+
+    public static final String Active = "active";
   }
 
   @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
   @Generated
-  public static class QUERY {
-    public static final String TYPE_NAME = "Query";
+  public static class PERMISSIONGQL {
+    public static final String TYPE_NAME = "PermissionGQL";
 
-    public static final String FindAllRawMaterials = "findAllRawMaterials";
+    public static final String Id = "id";
 
-    public static final String FindRawMaterialById = "findRawMaterialById";
-
-    public static final String GetRawMaterialCount = "getRawMaterialCount";
-
-    public static final String FindAllCategories = "findAllCategories";
-
-    public static final String FindAllRawMaterialCategories = "findAllRawMaterialCategories";
-
-    public static final String FindAllProductCategories = "findAllProductCategories";
-
-    public static final String FindCategoryById = "findCategoryById";
-
-    public static final String GetRawMaterialCategoryCount = "getRawMaterialCategoryCount";
-
-    public static final String GetProductCategoryCount = "getProductCategoryCount";
-
-    public static final String GetCategoryCount = "getCategoryCount";
-
-    @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
-    @Generated
-    public static class FINDRAWMATERIALBYID_INPUT_ARGUMENT {
-      public static final String Id = "id";
-    }
-
-    @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
-    @Generated
-    public static class FINDCATEGORYBYID_INPUT_ARGUMENT {
-      public static final String Id = "id";
-    }
-  }
-
-  @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
-  @Generated
-  public static class MUTATION {
-    public static final String TYPE_NAME = "Mutation";
-
-    public static final String CreateRawMaterial = "createRawMaterial";
-
-    public static final String UpdateRawMaterial = "updateRawMaterial";
-
-    public static final String RemoveRawMaterial = "removeRawMaterial";
-
-    public static final String CreateCategory = "createCategory";
-
-    public static final String UpdateCategory = "updateCategory";
-
-    public static final String DeleteCategory = "deleteCategory";
-
-    @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
-    @Generated
-    public static class CREATERAWMATERIAL_INPUT_ARGUMENT {
-      public static final String RawMaterial = "rawMaterial";
-    }
-
-    @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
-    @Generated
-    public static class UPDATERAWMATERIAL_INPUT_ARGUMENT {
-      public static final String Id = "id";
-
-      public static final String RawMaterial = "rawMaterial";
-    }
-
-    @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
-    @Generated
-    public static class REMOVERAWMATERIAL_INPUT_ARGUMENT {
-      public static final String Id = "id";
-    }
-
-    @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
-    @Generated
-    public static class CREATECATEGORY_INPUT_ARGUMENT {
-      public static final String Category = "category";
-    }
-
-    @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
-    @Generated
-    public static class UPDATECATEGORY_INPUT_ARGUMENT {
-      public static final String Id = "id";
-
-      public static final String Category = "category";
-    }
-
-    @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
-    @Generated
-    public static class DELETECATEGORY_INPUT_ARGUMENT {
-      public static final String Id = "id";
-    }
-  }
-
-  @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
-  @Generated
-  public static class CATEGORY_GQLINPUT {
-    public static final String TYPE_NAME = "CATEGORY_GQLInput";
+    public static final String Code = "code";
 
     public static final String Name = "name";
 
-    public static final String ParentId = "parentId";
+    public static final String Description = "description";
 
-    public static final String ChildrenIds = "childrenIds";
+    public static final String IsSystem = "isSystem";
 
-    public static final String ProductsIds = "productsIds";
+    public static final String CreatedAt = "createdAt";
 
-    public static final String RawMaterialsIds = "rawMaterialsIds";
+    public static final String UpdatedAt = "updatedAt";
+
+    public static final String Active = "active";
   }
 
   @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
   @Generated
-  public static class RAW_MATERIAL_GQLINPUT {
-    public static final String TYPE_NAME = "RAW_MATERIAL_GQLInput";
+  public static class ROLEGQL {
+    public static final String TYPE_NAME = "RoleGQL";
+
+    public static final String Id = "id";
 
     public static final String Name = "name";
 
-    public static final String Category = "category";
+    public static final String Description = "description";
 
-    public static final String RawMaterialType = "rawMaterialType";
+    public static final String IsSystem = "isSystem";
+
+    public static final String Permissions = "permissions";
+
+    public static final String ParentRole = "parentRole";
+
+    public static final String CreatedAt = "createdAt";
+
+    public static final String UpdatedAt = "updatedAt";
+
+    public static final String Active = "active";
+  }
+
+  @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
+  @Generated
+  public static class USERGQL {
+    public static final String TYPE_NAME = "UserGQL";
+
+    public static final String Id = "id";
+
+    public static final String FirstName = "firstName";
+
+    public static final String LastName = "lastName";
+
+    public static final String Email = "email";
+
+    public static final String Username = "username";
+
+    public static final String KeycloakId = "keycloakId";
+
+    public static final String Roles = "roles";
+
+    public static final String Branches = "branches";
+
+    public static final String Active = "active";
+
+    public static final String CreatedAt = "createdAt";
+
+    public static final String UpdatedAt = "updatedAt";
+  }
+
+  @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
+  @Generated
+  public static class CREATEUSERRESPONSE {
+    public static final String TYPE_NAME = "CreateUserResponse";
+
+    public static final String Status = "status";
+
+    public static final String Message = "message";
+  }
+
+  @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
+  @Generated
+  public static class CREATEBRANCHINPUT {
+    public static final String TYPE_NAME = "CreateBranchInput";
+
+    public static final String Name = "name";
+
+    public static final String Code = "code";
+
+    public static final String Address = "address";
+
+    public static final String Phone = "phone";
+
+    public static final String Email = "email";
+
+    public static final String IsMain = "isMain";
+
+    public static final String CompanyId = "companyId";
+  }
+
+  @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
+  @Generated
+  public static class CREATECOMPANYINPUT {
+    public static final String TYPE_NAME = "CreateCompanyInput";
+
+    public static final String Name = "name";
+
+    public static final String TaxId = "taxId";
+
+    public static final String Email = "email";
+
+    public static final String Phone = "phone";
+
+    public static final String Address = "address";
+
+    public static final String Country = "country";
+
+    public static final String Timezone = "timezone";
+  }
+
+  @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
+  @Generated
+  public static class CREATEPERMISSIONINPUT {
+    public static final String TYPE_NAME = "CreatePermissionInput";
+
+    public static final String Code = "code";
+
+    public static final String Name = "name";
+
+    public static final String Description = "description";
+
+    public static final String IsSystem = "isSystem";
+  }
+
+  @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
+  @Generated
+  public static class CREATEROLEINPUT {
+    public static final String TYPE_NAME = "CreateRoleInput";
+
+    public static final String Name = "name";
+
+    public static final String Description = "description";
+
+    public static final String IsSystem = "isSystem";
+
+    public static final String ParentRoleId = "parentRoleId";
+
+    public static final String PermissionIds = "permissionIds";
+  }
+
+  @jakarta.annotation.Generated("com.netflix.graphql.dgs.codegen.CodeGen")
+  @Generated
+  public static class CREATEUSERINPUT {
+    public static final String TYPE_NAME = "CreateUserInput";
+
+    public static final String Email = "email";
+
+    public static final String Password = "password";
+
+    public static final String FirstName = "firstName";
+
+    public static final String LastName = "lastName";
+
+    public static final String FullAddress = "fullAddress";
+
+    public static final String ZipCode = "zipCode";
+
+    public static final String Phone = "phone";
+
+    public static final String RegisterDate = "registerDate";
+
+    public static final String Roles = "roles";
   }
 }

@@ -1,0 +1,33 @@
+type BranchGQL {
+    id: ID!
+    name: String!
+    code: String!
+    address: String
+    phone: String
+    email: String
+    isMain: Boolean!
+    company: CompanyGQL!
+    createdAt: String
+    updatedAt: String
+    active: Boolean!
+}
+
+extend type Query {
+    getBranches: [BranchGQL!]!
+    branchesByCompany(companyId: ID!): [BranchGQL!]!
+}
+
+input CreateBranchInput {
+    name: String!
+    code: String!
+    address: String
+    phone: String
+    email: String
+    isMain: Boolean
+    companyId: ID!
+}
+
+extend type Mutation {
+    createBranch(input: CreateBranchInput!): BranchGQL!
+
+}

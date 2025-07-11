@@ -1,0 +1,25 @@
+type PermissionGQL {
+    id: ID!
+    code: String!
+    name: String!
+    description: String
+    isSystem: Boolean!
+    createdAt: String
+    updatedAt: String
+    active: Boolean!
+}
+
+input CreatePermissionInput {
+    code: String!
+    name: String!
+    description: String
+    isSystem: Boolean
+}
+
+extend type Mutation {
+    createPermission(input: CreatePermissionInput!): PermissionGQL!
+}
+
+extend type Query {
+    allPermissions: [PermissionGQL!]!
+}

@@ -1,4 +1,4 @@
-# Query.findRawMaterialCategoryById: RawMaterialCategoryType
+# Query.findRawMaterialCategoryById: RAW_MATERIAL_CATEGORY_GQL
                  
 ## Arguments
 | Name | Description | Required | Type |
@@ -10,8 +10,10 @@
 {
   findRawMaterialCategoryById(id: "random12345") {
     id
-    fatherCategoryId
     name
+    parent
+    children
+    rawMaterials
   }
 }
 

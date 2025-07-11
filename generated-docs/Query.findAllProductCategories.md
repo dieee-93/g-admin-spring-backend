@@ -1,4 +1,4 @@
-# Query.findAllProductCategories: [CATEGORY_GQL]!
+# Query.findAllProductCategories: [PRODUCT_CATEGORY_GQL]!
             
 ## Example
 ```graphql
@@ -9,7 +9,6 @@
     parent
     children
     products
-    rawMaterials
   }
 }
 

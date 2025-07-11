@@ -62,6 +62,10 @@ public class JwtAuthenticationConverter implements Converter<Jwt, AbstractAuthen
 
         resource = (Map<String, Object>) resourceAccess.get(resourceId);
 
+        if (!(resource.get("roles") instanceof Collection<?> rawRoles)) {
+            return Set.of();
+        }
+
         resourceRoles = (Collection<String>) resource.get("roles");
         return resourceRoles
                 .stream()

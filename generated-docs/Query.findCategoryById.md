@@ -8,14 +8,7 @@
 ## Example
 ```graphql
 {
-  findCategoryById(id: "random12345") {
-    id
-    name
-    parent
-    children
-    products
-    rawMaterials
-  }
+  findCategoryById(id: "random12345")
 }
 
 ```

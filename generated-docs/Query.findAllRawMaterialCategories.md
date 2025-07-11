@@ -1,4 +1,4 @@
-# Query.findAllRawMaterialCategories: [CATEGORY_GQL]!
+# Query.findAllRawMaterialCategories: [RAW_MATERIAL_CATEGORY_GQL]!
             
 ## Example
 ```graphql
@@ -8,7 +8,6 @@
     name
     parent
     children
-    products
     rawMaterials
   }
 }

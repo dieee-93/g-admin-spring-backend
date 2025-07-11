@@ -1,8 +1,11 @@
 package diego.soro.exception;
 
-public class NotFoundException extends AppException {
 
+import diego.soro.GAdminErrorType;
+import diego.soro.GAdminException;
+
+public class NotFoundException extends GAdminException {
     public NotFoundException(String message) {
-        super("NOT_FOUND: " + message);
+        super(message, GAdminErrorType.NOT_FOUND);
     }
 }

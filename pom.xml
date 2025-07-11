@@ -184,6 +184,7 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <schemas>${project.basedir}/src/main/java/diego/soro/model2/core/graphql</schemas>
                     <packageName>diego.soro.graphql.generated</packageName>
                     <outputDir>${project.basedir}/src/main/java</outputDir>
                     <generateIsGetterForPrimitiveBooleanFields>true
