@@ -1,0 +1,282 @@
+# =================================================================
+# MODULE DEPENDENCY GRAPHQL SCHEMA - TASK 1.2 G-ADMIN
+# =================================================================
+
+# src/main/resources/schema/module-dependencies.graphqls
+# GraphQL schema for module dependency management system
+# Follows G-ADMIN naming convention: PascalCase + GQL suffix
+
+scalar UUID
+
+# =================================================================
+# ENUMS
+# =================================================================
+
+enum ModuleNameGQL {
+    # Always Active Modules
+    CORE
+    INVENTORY
+    SALES
+    MENU
+
+    # Activatable Modules
+    KITCHEN_MANAGEMENT
+    CUSTOMER_CRM
+    ADVANCED_MENU
+    TABLE_MANAGEMENT
+    FINANCIAL_ANALYSIS
+    STAFF_MANAGEMENT
+    ANALYTICS_PRO
+    COMPLIANCE
+}
+
+enum PlanTypeGQL {
+    DIRECT_ACTIVATION
+    CASCADE_ACTIVATION
+}
+
+enum PricingTierGQL {
+    BASIC
+    PREMIUM
+    ENTERPRISE
+}
+
+enum ImpactLevelGQL {
+    LOW
+    MEDIUM
+    HIGH
+}
+
+# =================================================================
+# TYPE DEFINITIONS
+# =================================================================
+
+type ModuleDependencyGQL {
+    id: UUID!
+    moduleName: ModuleNameGQL!
+    dependsOnModule: ModuleNameGQL!
+    isRequired: Boolean!
+    reason: String
+    priority: Int
+    active: Boolean!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type DependencyValidationResultGQL {
+    canActivate: Boolean!
+    missingDependencies: [ModuleNameGQL!]!
+    requiredDependencies: [ModuleNameGQL!]!
+    validationMessage: String!
+}
+
+type DependencyActivationPlanGQL {
+    targetModule: ModuleNameGQL!
+    requiredActivations: [ModuleNameGQL!]!
+    activationOrder: [ModuleNameGQL!]!
+    missingDependencies: [ModuleNameGQL!]!
+    totalMonthlyCost: BigDecimal!
+    requiresConfirmation: Boolean!
+    planType: PlanTypeGQL!
+    estimatedActivationTime: DateTime
+    additionalInfo: String
+}
+
+type ModuleActivationResultGQL {
+    success: Boolean!
+    targetModule: ModuleNameGQL!
+    activatedModules: [ModuleNameGQL!]!
+    totalCost: BigDecimal!
+    activationTimestamp: DateTime!
+    message: String!
+    errorCode: String
+}
+
+type DeactivationValidationResultGQL {
+    canDeactivate: Boolean!
+    affectedModules: [ModuleNameGQL!]!
+    warningMessage: String!
+    requiresConfirmation: Boolean!
+    monthlySavings: BigDecimal!
+    impactLevel: ImpactLevelGQL!
+}
+
+type ModulePricingGQL {
+    moduleName: ModuleNameGQL!
+    displayName: String!
+    description: String
+    monthlyPrice: BigDecimal!
+    isFree: Boolean!
+    isAlwaysActive: Boolean!
+    pricingTier: PricingTierGQL!
+    features: String
+}
+
+type ModulePricingCalculationGQL {
+    modules: [ModulePricingGQL!]!
+    totalMonthlyCost: BigDecimal!
+    moduleCount: Int!
+    discountApplied: Boolean!
+    volumeDiscountPercentage: BigDecimal
+}
+
+type ModuleRecommendationGQL {
+    businessType: String!
+    recommendedModules: [ModuleNameGQL!]!
+    pricing: [ModulePricingGQL!]!
+    totalMonthlyCost: BigDecimal!
+    reasoning: String!
+}
+
+type ModuleSystemHealthGQL {
+    status: String!
+    dependencyServiceActive: Boolean!
+    pricingServiceActive: Boolean!
+    averageResponseTime: String!
+    totalModulesSupported: Int!
+    lastHealthCheck: DateTime!
+}
+
+# =================================================================
+# INPUT TYPES
+# =================================================================
+
+input ModuleActivationInputGQL {
+    companyId: UUID!
+    moduleName: ModuleNameGQL!
+    confirmCascade: Boolean = false
+}
+
+input ModulePricingCalculationInputGQL {
+    moduleNames: [ModuleNameGQL!]!
+}
+
+input ModuleRecommendationInputGQL {
+    businessType: String!
+    monthlyRevenue: BigDecimal
+}
+
+input ModuleDependencyFilterInputGQL {
+    moduleName: ModuleNameGQL
+    dependsOnModule: ModuleNameGQL
+    isRequired: Boolean
+    active: Boolean = true
+}
+
+# =================================================================
+# QUERY DEFINITIONS
+# =================================================================
+
+extend type Query {
+    """
+    Validate if a module can be activated for a company
+    Checks all required dependencies and returns validation result
+    """
+    validateModuleActivation(
+        companyId: UUID!
+        moduleName: ModuleNameGQL!
+    ): DependencyValidationResultGQL!
+
+    """
+    Create activation plan for a module with dependency resolution
+    Includes cost calculation and cascade activation sequence
+    """
+    createModuleActivationPlan(
+        companyId: UUID!
+        moduleName: ModuleNameGQL!
+    ): DependencyActivationPlanGQL!
+
+    """
+    Validate module deactivation impact
+    Analyzes impact and returns affected modules
+    """
+    validateModuleDeactivation(
+        companyId: UUID!
+        moduleName: ModuleNameGQL!
+    ): DeactivationValidationResultGQL!
+
+    """
+    Get complete dependency chain for a module
+    Returns ordered list of all dependencies
+    """
+    getModuleDependencyChain(
+        moduleName: ModuleNameGQL!
+    ): [ModuleNameGQL!]!
+
+    """
+    Get all module dependencies with optional filtering
+    """
+    getModuleDependencies(
+        filter: ModuleDependencyFilterInputGQL
+    ): [ModuleDependencyGQL!]!
+
+    """
+    Get pricing information for all modules
+    """
+    getAllModulePricing: [ModulePricingGQL!]!
+
+    """
+    Calculate pricing for specific modules
+    Includes volume discounts and total cost
+    """
+    calculateModulePricing(
+        input: ModulePricingCalculationInputGQL!
+    ): ModulePricingCalculationGQL!
+
+    """
+    Get module recommendations based on business type
+    Returns curated module list with pricing
+    """
+    getModuleRecommendations(
+        input: ModuleRecommendationInputGQL!
+    ): ModuleRecommendationGQL!
+
+    """
+    Get system health status for module dependency system
+    """
+    getModuleSystemHealth: ModuleSystemHealthGQL!
+}
+
+# =================================================================
+# MUTATION DEFINITIONS
+# =================================================================
+
+extend type Mutation {
+    """
+    Execute module activation with dependency resolution
+    Activates module and all required dependencies in correct order
+    """
+    activateModule(
+        input: ModuleActivationInputGQL!
+    ): ModuleActivationResultGQL!
+
+    """
+    Deactivate a module after impact validation
+    Requires confirmation if other modules depend on it
+    """
+    deactivateModule(
+        companyId: UUID!
+        moduleName: ModuleNameGQL!
+        confirmImpact: Boolean = false
+    ): ModuleActivationResultGQL!
+}
+
+# =================================================================
+# SUBSCRIPTION DEFINITIONS (for real-time updates)
+# =================================================================
+
+type Subscription {
+    """
+    Subscribe to module activation status changes
+    Useful for real-time UI updates during activation process
+    """
+    moduleActivationStatus(
+        companyId: UUID!
+    ): ModuleActivationResultGQL!
+
+    """
+    Subscribe to module pricing updates
+    Notifies when pricing changes or promotions are available
+    """
+    modulePricingUpdates: [ModulePricingGQL!]!
+}

@@ -2,6 +2,7 @@ package diego.soro.keycloak.service;
 
 
 import diego.soro.model.user.UserDTO;
+import diego.soro.model2.core.User.CreateUserDTO;
 import diego.soro.utils.KeycloakProvider;
 import jakarta.ws.rs.core.Response;
 import lombok.extern.slf4j.Slf4j;
@@ -115,7 +116,7 @@ public class KeycloakServiceImpl implements IKeycloakService {
         }
     }
 
-    public String createAdmin(@NonNull UserDTO userDTO) {
+    public String createAdmin(@NonNull CreateUserDTO userDTO) {
 
         int status = 0;
         UsersResource usersResource = KeycloakProvider.getUserResource();
